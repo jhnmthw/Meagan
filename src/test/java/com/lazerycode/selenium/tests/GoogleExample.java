@@ -1,4 +1,4 @@
-package com.lazerycode.selenium.tests;
+package com.tavant.selenium.tests;
 
 import com.lazerycode.selenium.DriverBase;
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class GoogleExampleIT extends DriverBase {
+public class GoogleExample extends DriverBase {
 
     @Test
     public void googleCheeseExample() throws Exception {
