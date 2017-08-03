@@ -19,8 +19,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <groupId>com.lazerycode.selenium</groupId>
-    <artifactId>maven-template</artifactId>
+    <groupId>com.tavant.nfr.selenium</groupId>
+    <artifactId>Meagan</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
 
@@ -59,11 +59,18 @@
         <threads>1</threads>
         <remote>false</remote>
         <seleniumGridURL/>
-        <platform/>
+        <platform>windows</platform>
         <browserVersion/>
         <proxyEnabled>false</proxyEnabled>
         <proxyHost/>
         <proxyPort/>
+        <appURL>http://demo.testfire.net/login.aspx</appURL>
+        <username>admin</username>
+        <password>admin</password>
+        <usernameElementXPath>//*[@id=&quot;uid&quot;]</usernameElementXPath>
+        <passwordElementXPath>//*[@id=&quot;passw&quot;]</passwordElementXPath>
+        <loginBtnXPath>//*[@id=&quot;login&quot;]/table/tbody/tr[3]/td[2]/input</loginBtnXPath>
+        <logoutBtnXPath>//*[@id=&quot;_ctl0__ctl0_LoginLink&quot;]</logoutBtnXPath>
     </properties>
 
     <dependencies>
@@ -136,7 +143,7 @@
                             <downloadedZipFileDirectory>${project.basedir}/src/test/resources/selenium_standalone_zips</downloadedZipFileDirectory>
                             <customRepositoryMap>${project.basedir}/src/test/resources/RepositoryMap.xml</customRepositoryMap>
                             <overwriteFilesThatExist>${overwrite.binaries}</overwriteFilesThatExist>
-                            <onlyGetDriversForHostOperatingSystem>false</onlyGetDriversForHostOperatingSystem>
+                            <onlyGetDriversForHostOperatingSystem>true</onlyGetDriversForHostOperatingSystem>
                             <fileDownloadRetryAttempts>${retry.attempts}</fileDownloadRetryAttempts>
                             <fileDownloadReadTimeout>${read.timeout}</fileDownloadReadTimeout>
                             <operatingSystems>
@@ -170,6 +177,13 @@
                                 <proxyEnabled>${proxyEnabled}</proxyEnabled>
                                 <proxyHost>${proxyHost}</proxyHost>
                                 <proxyPort>${proxyPort}</proxyPort>
+                                <appURL>${appURL}</appURL>
+                                <username>${username}</username>
+                                <password>${password}</password>
+                                <usernameElementXPath>${usernameElementXPath}</usernameElementXPath>
+                                <passwordElementXPath>${passwordElementXPath}</passwordElementXPath>
+                                <loginBtnXPath>${loginBtnXPath}</loginBtnXPath>
+                                <logoutBtnXPath>${logoutBtnXPath}</logoutBtnXPath>
 
                                 <!--Set properties passed in by the driver binary downloader-->
                                 <phantomjs.binary.path>${phantomjs.binary.path}</phantomjs.binary.path>
