@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="698" it="0" lt="698" ct="36" ts="1510058104864" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="1" na="1"/>
+<httpSample t="605" it="0" lt="385" ct="0" ts="1510058105570" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10039" sby="327" ng="2" na="2"/>
+<httpSample t="634" it="0" lt="634" ct="1" ts="1510058105828" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="305" it="0" lt="305" ct="0" ts="1510058106176" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9139" sby="378" ng="2" na="2"/>
+<httpSample t="333" it="0" lt="333" ct="28" ts="1510058106482" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="1144" it="0" lt="805" ct="0" ts="1510058106462" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10039" sby="327" ng="2" na="2"/>
+<httpSample t="577" it="0" lt="327" ct="0" ts="1510058107607" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9163" sby="378" ng="2" na="2"/>
+<httpSample t="292" it="0" lt="292" ct="1" ts="1510058108185" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="38849" it="0" lt="38004" ct="2" ts="1510058108478" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10528" sby="1383" ng="2" na="2">
+  <httpSample t="38004" it="0" lt="38004" ct="2" ts="1510058108478" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="295" it="0" lt="295" ct="1" ts="1510058146483" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="649" sby="441" ng="2" na="2"/>
+  <httpSample t="548" it="0" lt="318" ct="0" ts="1510058146779" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9164" sby="442" ng="2" na="2"/>
+</httpSample>
+<httpSample t="315" it="0" lt="315" ct="0" ts="1510058147328" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="564" sby="392" ng="2" na="2"/>
+<httpSample t="599" it="0" lt="304" ct="0" ts="1510058147644" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9789" sby="904" ng="2" na="2">
+  <httpSample t="304" it="0" lt="304" ct="0" ts="1510058147644" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="649" sby="463" ng="2" na="2"/>
+  <httpSample t="294" it="0" lt="294" ct="0" ts="1510058147949" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="688" it="0" lt="301" ct="0" ts="1510058148243" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="301" it="0" lt="301" ct="0" ts="1510058148243" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="387" it="0" lt="387" ct="1" ts="1510058148544" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="309" it="0" lt="309" ct="0" ts="1510058148931" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="281" it="0" lt="281" ct="0" ts="1510058149240" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="412" it="0" lt="412" ct="0" ts="1510058149522" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="348" it="0" lt="348" ct="0" ts="1510058149935" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="146" it="0" lt="146" ct="17" ts="1510058150283" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="62014" it="0" lt="61715" ct="0" ts="1510058106816" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="1270" sby="941" ng="2" na="2">
+  <httpSample t="61715" it="0" lt="61715" ct="0" ts="1510058106816" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="714" sby="500" ng="2" na="2"/>
+  <httpSample t="299" it="0" lt="299" ct="2" ts="1510058168531" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="556" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="306" it="0" lt="306" ct="0" ts="1510058168831" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="556" sby="392" ng="2" na="2"/>
+<httpSample t="1002" it="0" lt="300" ct="0" ts="1510058169137" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9638" sby="904" ng="2" na="2">
+  <httpSample t="300" it="0" lt="300" ct="0" ts="1510058169137" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-1" dt="" by="475" sby="463" ng="2" na="2"/>
+  <httpSample t="701" it="0" lt="397" ct="0" ts="1510058169438" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9163" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="599" it="0" lt="306" ct="0" ts="1510058170139" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10655" sby="788" ng="2" na="2">
+  <httpSample t="306" it="0" lt="306" ct="0" ts="1510058170139" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="640" sby="396" ng="2" na="2"/>
+  <httpSample t="293" it="0" lt="293" ct="0" ts="1510058170445" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10015" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="350" it="0" lt="349" ct="2" ts="1510058170738" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10015" sby="392" ng="2" na="2"/>
+<httpSample t="343" it="0" lt="343" ct="0" ts="1510058171088" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="282" it="0" lt="282" ct="0" ts="1510058171432" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10015" sby="327" ng="2" na="2"/>
+<httpSample t="302" it="0" lt="302" ct="0" ts="1510058171715" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9139" sby="378" ng="2" na="2"/>
+<httpSample t="179" it="0" lt="179" ct="2" ts="1510058172017" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="46500" it="0" lt="46202" ct="0" ts="1510058150430" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="1279" sby="941" ng="2" na="2">
+  <httpSample t="46202" it="0" lt="46202" ct="0" ts="1510058150430" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="299" it="0" lt="299" ct="1" ts="1510058196631" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="564" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="339" it="0" lt="339" ct="0" ts="1510058196930" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="557" sby="392" ng="2" na="2"/>
+<httpSample t="1686" it="0" lt="359" ct="0" ts="1510058197270" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9813" sby="904" ng="2" na="2">
+  <httpSample t="359" it="0" lt="359" ct="0" ts="1510058197270" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="649" sby="463" ng="2" na="2"/>
+  <httpSample t="1327" it="0" lt="451" ct="0" ts="1510058197629" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9164" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="1280" it="0" lt="325" ct="4" ts="1510058198956" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10681" sby="788" ng="2" na="2">
+  <httpSample t="325" it="0" lt="325" ct="4" ts="1510058198956" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="954" it="0" lt="315" ct="0" ts="1510058199282" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10040" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="538" it="0" lt="296" ct="0" ts="1510058200237" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10040" sby="392" ng="2" na="2"/>
+<httpSample t="307" it="0" lt="307" ct="0" ts="1510058200775" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="348" it="0" lt="348" ct="2" ts="1510058201082" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="367" it="0" lt="367" ct="0" ts="1510058201431" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="120" it="0" lt="120" ct="4" ts="1510058201799" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="40152" it="0" lt="39873" ct="0" ts="1510058172197" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="1272" sby="941" ng="2" na="2">
+  <httpSample t="39873" it="0" lt="39873" ct="0" ts="1510058172197" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="280" it="0" lt="280" ct="1" ts="1510058212069" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="557" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="347" it="0" lt="347" ct="0" ts="1510058212350" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="564" sby="392" ng="2" na="2"/>
+<httpSample t="888" it="0" lt="326" ct="0" ts="1510058212697" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9813" sby="904" ng="2" na="2">
+  <httpSample t="326" it="0" lt="326" ct="0" ts="1510058212697" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="649" sby="463" ng="2" na="2"/>
+  <httpSample t="561" it="0" lt="285" ct="0" ts="1510058213024" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9164" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="591" it="0" lt="294" ct="0" ts="1510058213586" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="294" it="0" lt="294" ct="0" ts="1510058213586" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="297" it="0" lt="297" ct="0" ts="1510058213880" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="307" it="0" lt="307" ct="1" ts="1510058214178" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="305" it="0" lt="305" ct="0" ts="1510058214486" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="1184" it="0" lt="294" ct="0" ts="1510058214791" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10040" sby="327" ng="2" na="2"/>
+<httpSample t="905" it="0" lt="299" ct="0" ts="1510058215976" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9164" sby="378" ng="2" na="2"/>
+<httpSample t="362" it="0" lt="362" ct="2" ts="1510058216881" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="34824" it="0" lt="34522" ct="0" ts="1510058201920" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="1274" sby="941" ng="2" na="2">
+  <httpSample t="34522" it="0" lt="34522" ct="0" ts="1510058201920" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="302" it="0" lt="302" ct="2" ts="1510058236442" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="559" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="962" it="0" lt="410" ct="0" ts="1510058236744" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9813" sby="785" ng="2" na="2">
+  <httpSample t="410" it="0" lt="410" ct="0" ts="1510058236744" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="649" sby="392" ng="2" na="2"/>
+  <httpSample t="552" it="0" lt="292" ct="0" ts="1510058237154" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9164" sby="393" ng="2" na="2"/>
+</httpSample>
+<httpSample t="303" it="0" lt="303" ct="0" ts="1510058237707" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="557" sby="463" ng="2" na="2"/>
+<httpSample t="614" it="0" lt="296" ct="0" ts="1510058238010" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="296" it="0" lt="296" ct="0" ts="1510058238010" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="318" it="0" lt="318" ct="0" ts="1510058238306" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="376" it="0" lt="376" ct="1" ts="1510058238625" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="294" it="0" lt="294" ct="0" ts="1510058239001" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="426" it="0" lt="426" ct="0" ts="1510058239296" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="299" it="0" lt="299" ct="0" ts="1510058239723" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="148" it="0" lt="148" ct="4" ts="1510058240022" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="68134" it="0" lt="67119" ct="2" ts="1510058217243" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10352" sby="1383" ng="2" na="2">
+  <httpSample t="67119" it="0" lt="67119" ct="2" ts="1510058217243" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="714" sby="500" ng="2" na="2"/>
+  <httpSample t="386" it="0" lt="386" ct="1" ts="1510058284364" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-1" dt="" by="475" sby="441" ng="2" na="2"/>
+  <httpSample t="627" it="0" lt="288" ct="0" ts="1510058284750" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9163" sby="442" ng="2" na="2"/>
+</httpSample>
+<httpSample t="305" it="0" lt="305" ct="0" ts="1510058285379" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="558" sby="392" ng="2" na="2"/>
+<httpSample t="779" it="0" lt="448" ct="0" ts="1510058285684" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9787" sby="904" ng="2" na="2">
+  <httpSample t="448" it="0" lt="448" ct="0" ts="1510058285684" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="648" sby="463" ng="2" na="2"/>
+  <httpSample t="330" it="0" lt="330" ct="0" ts="1510058286133" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9139" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="804" it="0" lt="413" ct="2" ts="1510058286464" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10655" sby="788" ng="2" na="2">
+  <httpSample t="413" it="0" lt="413" ct="2" ts="1510058286464" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="640" sby="396" ng="2" na="2"/>
+  <httpSample t="391" it="0" lt="391" ct="0" ts="1510058286877" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10015" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="348" it="0" lt="348" ct="0" ts="1510058287269" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10015" sby="392" ng="2" na="2"/>
+<httpSample t="309" it="0" lt="309" ct="0" ts="1510058287617" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="355" it="0" lt="355" ct="0" ts="1510058287926" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10015" sby="327" ng="2" na="2"/>
+<httpSample t="303" it="0" lt="303" ct="0" ts="1510058288281" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9139" sby="378" ng="2" na="2"/>
+<httpSample t="306" it="0" lt="306" ct="16" ts="1510058288584" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="52756" it="0" lt="51839" ct="0" ts="1510058240171" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10525" sby="1383" ng="2" na="2">
+  <httpSample t="51840" it="0" lt="51839" ct="0" ts="1510058240171" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="714" sby="500" ng="2" na="2"/>
+  <httpSample t="331" it="0" lt="331" ct="1" ts="1510058292011" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="648" sby="441" ng="2" na="2"/>
+  <httpSample t="584" it="0" lt="358" ct="0" ts="1510058292343" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9163" sby="442" ng="2" na="2"/>
+</httpSample>
+<httpSample t="359" it="0" lt="359" ct="0" ts="1510058292927" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="563" sby="392" ng="2" na="2"/>
+<httpSample t="659" it="0" lt="299" ct="0" ts="1510058293287" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9614" sby="904" ng="2" na="2">
+  <httpSample t="299" it="0" lt="299" ct="0" ts="1510058293287" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-2" dt="" by="475" sby="463" ng="2" na="2"/>
+  <httpSample t="360" it="0" lt="360" ct="0" ts="1510058293586" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9139" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="616" it="0" lt="300" ct="0" ts="1510058293946" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="300" it="0" lt="300" ct="0" ts="1510058293946" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="316" it="0" lt="316" ct="2" ts="1510058294246" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="320" it="0" lt="320" ct="0" ts="1510058294562" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="286" it="0" lt="286" ct="0" ts="1510058294882" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="308" it="0" lt="308" ct="0" ts="1510058295168" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="306" it="0" lt="306" ct="0" ts="1510058295476" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="296" it="0" lt="296" ct="1" ts="1510058295783" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="41515" it="0" lt="40534" ct="2" ts="1510058288890" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10528" sby="1383" ng="2" na="2">
+  <httpSample t="40534" it="0" lt="40534" ct="2" ts="1510058288890" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="390" it="0" lt="390" ct="2" ts="1510058329424" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="649" sby="441" ng="2" na="2"/>
+  <httpSample t="591" it="0" lt="412" ct="0" ts="1510058329814" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9164" sby="442" ng="2" na="2"/>
+</httpSample>
+<httpSample t="592" it="0" lt="297" ct="0" ts="1510058330405" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9616" sby="785" ng="2" na="2">
+  <httpSample t="297" it="0" lt="297" ct="0" ts="1510058330405" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-1" dt="" by="476" sby="392" ng="2" na="2"/>
+  <httpSample t="295" it="0" lt="295" ct="0" ts="1510058330702" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="393" ng="2" na="2"/>
+</httpSample>
+<httpSample t="732" it="0" lt="400" ct="0" ts="1510058330998" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9616" sby="904" ng="2" na="2">
+  <httpSample t="400" it="0" lt="400" ct="0" ts="1510058330998" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-1" dt="" by="476" sby="463" ng="2" na="2"/>
+  <httpSample t="332" it="0" lt="332" ct="0" ts="1510058331398" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="696" it="0" lt="326" ct="1" ts="1510058331730" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="326" it="0" lt="326" ct="1" ts="1510058331730" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="370" it="0" lt="370" ct="0" ts="1510058332056" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="296" it="0" lt="296" ct="0" ts="1510058332427" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="353" it="0" lt="353" ct="0" ts="1510058332723" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="351" it="0" lt="351" ct="0" ts="1510058333076" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="353" it="0" lt="353" ct="0" ts="1510058333428" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="121" it="0" lt="121" ct="13" ts="1510058333781" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="44372" it="0" lt="44034" ct="0" ts="1510058296079" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="1279" sby="941" ng="2" na="2">
+  <httpSample t="44034" it="0" lt="44034" ct="0" ts="1510058296079" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="338" it="0" lt="338" ct="2" ts="1510058340113" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="564" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="1016" it="0" lt="294" ct="0" ts="1510058340452" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9813" sby="785" ng="2" na="2">
+  <httpSample t="294" it="0" lt="294" ct="0" ts="1510058340452" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="649" sby="392" ng="2" na="2"/>
+  <httpSample t="722" it="0" lt="434" ct="0" ts="1510058340746" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9164" sby="393" ng="2" na="2"/>
+</httpSample>
+<httpSample t="296" it="0" lt="296" ct="0" ts="1510058341469" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="564" sby="463" ng="2" na="2"/>
+<httpSample t="630" it="0" lt="297" ct="0" ts="1510058341766" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="297" it="0" lt="297" ct="0" ts="1510058341766" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="333" it="0" lt="333" ct="0" ts="1510058342063" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="390" it="0" lt="390" ct="1" ts="1510058342397" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="444" it="0" lt="444" ct="0" ts="1510058342788" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="318" it="0" lt="318" ct="0" ts="1510058343232" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="282" it="0" lt="282" ct="0" ts="1510058343551" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="205" it="0" lt="205" ct="2" ts="1510058343833" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="50843" it="0" lt="50519" ct="2" ts="1510058333902" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="1272" sby="941" ng="2" na="2">
+  <httpSample t="50519" it="0" lt="50519" ct="2" ts="1510058333902" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="324" it="0" lt="324" ct="1" ts="1510058384421" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="557" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="906" it="0" lt="304" ct="0" ts="1510058384746" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9813" sby="785" ng="2" na="2">
+  <httpSample t="304" it="0" lt="304" ct="0" ts="1510058384746" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="649" sby="392" ng="2" na="2"/>
+  <httpSample t="602" it="0" lt="304" ct="0" ts="1510058385050" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9164" sby="393" ng="2" na="2"/>
+</httpSample>
+<httpSample t="446" it="0" lt="446" ct="0" ts="1510058385652" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="557" sby="463" ng="2" na="2"/>
+<httpSample t="770" it="0" lt="373" ct="0" ts="1510058386098" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="373" it="0" lt="373" ct="0" ts="1510058386098" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="397" it="0" lt="397" ct="2" ts="1510058386471" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="426" it="0" lt="426" ct="0" ts="1510058386869" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="313" it="0" lt="313" ct="0" ts="1510058387295" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="311" it="0" lt="311" ct="0" ts="1510058387608" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="304" it="0" lt="303" ct="0" ts="1510058387920" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="169" it="0" lt="169" ct="3" ts="1510058388224" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="61927" it="0" lt="61562" ct="0" ts="1510058344038" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="1272" sby="941" ng="2" na="2">
+  <httpSample t="61562" it="0" lt="61562" ct="0" ts="1510058344038" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="714" sby="500" ng="2" na="2"/>
+  <httpSample t="365" it="0" lt="365" ct="2" ts="1510058405600" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="558" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="400" it="0" lt="400" ct="0" ts="1510058405966" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="558" sby="392" ng="2" na="2"/>
+<httpSample t="1082" it="0" lt="403" ct="0" ts="1510058406366" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9811" sby="904" ng="2" na="2">
+  <httpSample t="403" it="0" lt="403" ct="0" ts="1510058406366" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="648" sby="463" ng="2" na="2"/>
+  <httpSample t="679" it="0" lt="385" ct="0" ts="1510058406769" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9163" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="676" it="0" lt="375" ct="0" ts="1510058407448" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10655" sby="788" ng="2" na="2">
+  <httpSample t="375" it="0" lt="375" ct="0" ts="1510058407448" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="640" sby="396" ng="2" na="2"/>
+  <httpSample t="300" it="0" lt="300" ct="1" ts="1510058407824" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10015" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="400" it="0" lt="400" ct="0" ts="1510058408124" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10015" sby="392" ng="2" na="2"/>
+<httpSample t="332" it="0" lt="332" ct="0" ts="1510058408524" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="903" it="0" lt="640" ct="0" ts="1510058408857" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10039" sby="327" ng="2" na="2"/>
+<httpSample t="622" it="0" lt="346" ct="0" ts="1510058409760" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9163" sby="378" ng="2" na="2"/>
+<httpSample t="496" it="0" lt="496" ct="1" ts="1510058410383" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="64327" it="0" lt="63433" ct="0" ts="1510058388394" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10355" sby="1383" ng="2" na="2">
+  <httpSample t="63433" it="0" lt="63433" ct="0" ts="1510058388394" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="339" it="0" lt="339" ct="2" ts="1510058451827" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-1" dt="" by="476" sby="441" ng="2" na="2"/>
+  <httpSample t="555" it="0" lt="380" ct="0" ts="1510058452166" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9164" sby="442" ng="2" na="2"/>
+</httpSample>
+<httpSample t="575" it="0" lt="288" ct="0" ts="1510058452721" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9616" sby="785" ng="2" na="2">
+  <httpSample t="288" it="0" lt="288" ct="0" ts="1510058452721" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-1" dt="" by="476" sby="392" ng="2" na="2"/>
+  <httpSample t="287" it="0" lt="287" ct="0" ts="1510058453009" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="393" ng="2" na="2"/>
+</httpSample>
+<httpSample t="328" it="0" lt="328" ct="0" ts="1510058453297" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="557" sby="463" ng="2" na="2"/>
+<httpSample t="654" it="0" lt="285" ct="0" ts="1510058453626" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="285" it="0" lt="285" ct="0" ts="1510058453626" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="369" it="0" lt="369" ct="1" ts="1510058453911" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="307" it="0" lt="307" ct="0" ts="1510058454281" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="299" it="0" lt="299" ct="0" ts="1510058454589" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="299" it="0" lt="299" ct="0" ts="1510058454889" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="323" it="0" lt="323" ct="0" ts="1510058455188" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="141" it="0" lt="141" ct="17" ts="1510058455512" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="45107" it="0" lt="44789" ct="2" ts="1510058410879" s="false" lb="14 /bank/login.aspx" rc="500" rm="Internal Server Error" tn="Thread Group 1-2" dt="text" by="6232" sby="500" ng="2" na="2"/>
+<httpSample t="288" it="0" lt="288" ct="1" ts="1510058455987" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="564" sby="392" ng="2" na="2"/>
+<httpSample t="313" it="0" lt="313" ct="0" ts="1510058456276" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="557" sby="463" ng="2" na="2"/>
+<httpSample t="622" it="0" lt="318" ct="0" ts="1510058456589" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="318" it="0" lt="318" ct="0" ts="1510058456589" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="304" it="0" lt="304" ct="0" ts="1510058456907" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="291" it="0" lt="291" ct="0" ts="1510058457212" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="296" it="0" lt="296" ct="0" ts="1510058457503" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="342" it="0" lt="342" ct="0" ts="1510058457799" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="315" it="0" lt="315" ct="2" ts="1510058458142" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="318" it="0" lt="318" ct="1" ts="1510058458457" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="46956" it="0" lt="46645" ct="0" ts="1510058455654" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="1279" sby="941" ng="2" na="2">
+  <httpSample t="46645" it="0" lt="46645" ct="0" ts="1510058455654" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="311" it="0" lt="311" ct="2" ts="1510058502299" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="564" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="307" it="0" lt="307" ct="0" ts="1510058502611" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="564" sby="392" ng="2" na="2"/>
+<httpSample t="278" it="0" lt="278" ct="0" ts="1510058502919" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="557" sby="463" ng="2" na="2"/>
+<httpSample t="924" it="0" lt="328" ct="0" ts="1510058503197" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10681" sby="788" ng="2" na="2">
+  <httpSample t="328" it="0" lt="328" ct="0" ts="1510058503197" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="596" it="0" lt="329" ct="0" ts="1510058503525" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10040" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="316" it="0" lt="316" ct="0" ts="1510058504121" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="310" it="0" lt="310" ct="1" ts="1510058504438" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="332" it="0" lt="332" ct="0" ts="1510058504748" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="393" it="0" lt="393" ct="0" ts="1510058505080" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="151" it="0" lt="150" ct="20" ts="1510058505473" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="58324" it="0" lt="57937" ct="0" ts="1510058458775" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="1279" sby="941" ng="2" na="2">
+  <httpSample t="57937" it="0" lt="57937" ct="0" ts="1510058458775" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="386" it="0" lt="386" ct="1" ts="1510058516713" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="564" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="846" it="0" lt="264" ct="0" ts="1510058517100" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9640" sby="785" ng="2" na="2">
+  <httpSample t="264" it="0" lt="264" ct="0" ts="1510058517100" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-2" dt="" by="476" sby="392" ng="2" na="2"/>
+  <httpSample t="582" it="0" lt="319" ct="0" ts="1510058517364" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9164" sby="393" ng="2" na="2"/>
+</httpSample>
+<httpSample t="304" it="0" lt="304" ct="0" ts="1510058517947" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="557" sby="463" ng="2" na="2"/>
+<httpSample t="743" it="0" lt="394" ct="0" ts="1510058518252" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="395" it="0" lt="394" ct="0" ts="1510058518252" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="348" it="0" lt="348" ct="0" ts="1510058518647" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="305" it="0" lt="305" ct="1" ts="1510058518996" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="304" it="0" lt="304" ct="0" ts="1510058519301" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="304" it="0" lt="304" ct="0" ts="1510058519605" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="325" it="0" lt="325" ct="0" ts="1510058519909" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="168" it="0" lt="167" ct="1" ts="1510058520235" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="46958" it="0" lt="46660" ct="0" ts="1510058505624" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="1279" sby="941" ng="2" na="2">
+  <httpSample t="46660" it="0" lt="46660" ct="0" ts="1510058505624" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="297" it="0" lt="297" ct="2" ts="1510058552285" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="564" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="342" it="0" lt="342" ct="0" ts="1510058552583" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="557" sby="392" ng="2" na="2"/>
+<httpSample t="955" it="0" lt="331" ct="0" ts="1510058552926" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9640" sby="904" ng="2" na="2">
+  <httpSample t="331" it="0" lt="331" ct="0" ts="1510058552926" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-1" dt="" by="476" sby="463" ng="2" na="2"/>
+  <httpSample t="624" it="0" lt="394" ct="0" ts="1510058553257" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9164" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="606" it="0" lt="304" ct="0" ts="1510058553882" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="304" it="0" lt="304" ct="0" ts="1510058553882" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="302" it="0" lt="302" ct="0" ts="1510058554186" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="384" it="0" lt="384" ct="1" ts="1510058554488" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="407" it="0" lt="406" ct="0" ts="1510058554872" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="305" it="0" lt="305" ct="0" ts="1510058555279" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="348" it="0" lt="348" ct="0" ts="1510058555584" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="180" it="0" lt="180" ct="30" ts="1510058555933" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="55268" it="0" lt="54307" ct="0" ts="1510058520403" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10528" sby="1383" ng="2" na="2">
+  <httpSample t="54307" it="0" lt="54307" ct="0" ts="1510058520403" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="385" it="0" lt="385" ct="2" ts="1510058574710" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="649" sby="441" ng="2" na="2"/>
+  <httpSample t="576" it="0" lt="325" ct="0" ts="1510058575095" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9164" sby="442" ng="2" na="2"/>
+</httpSample>
+<httpSample t="304" it="0" lt="304" ct="0" ts="1510058575671" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="564" sby="392" ng="2" na="2"/>
+<httpSample t="305" it="0" lt="305" ct="0" ts="1510058575976" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="564" sby="463" ng="2" na="2"/>
+<httpSample t="694" it="0" lt="297" ct="0" ts="1510058576281" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="297" it="0" lt="297" ct="0" ts="1510058576281" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="397" it="0" lt="397" ct="0" ts="1510058576578" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="344" it="0" lt="344" ct="2" ts="1510058576975" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="387" it="0" lt="387" ct="0" ts="1510058577320" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="292" it="0" lt="292" ct="0" ts="1510058577707" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="327" ng="2" na="2"/>
+<httpSample t="341" it="0" lt="341" ct="0" ts="1510058577999" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="378" ng="2" na="2"/>
+<httpSample t="116" it="0" lt="116" ct="2" ts="1510058578340" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="29707" it="0" lt="29371" ct="0" ts="1510058556114" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="1277" sby="941" ng="2" na="2">
+  <httpSample t="29371" it="0" lt="29371" ct="0" ts="1510058556114" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="714" sby="500" ng="2" na="2"/>
+  <httpSample t="335" it="0" lt="335" ct="5" ts="1510058585486" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="563" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="384" it="0" lt="384" ct="0" ts="1510058585822" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="558" sby="392" ng="2" na="2"/>
+<httpSample t="876" it="0" lt="330" ct="0" ts="1510058586206" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9811" sby="904" ng="2" na="2">
+  <httpSample t="330" it="0" lt="330" ct="0" ts="1510058586206" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="648" sby="463" ng="2" na="2"/>
+  <httpSample t="546" it="0" lt="383" ct="0" ts="1510058586536" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9163" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="771" it="0" lt="394" ct="0" ts="1510058587082" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10655" sby="788" ng="2" na="2">
+  <httpSample t="394" it="0" lt="394" ct="0" ts="1510058587082" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="640" sby="396" ng="2" na="2"/>
+  <httpSample t="377" it="0" lt="377" ct="0" ts="1510058587476" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10015" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="333" it="0" lt="333" ct="1" ts="1510058587853" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10015" sby="392" ng="2" na="2"/>
+<httpSample t="338" it="0" lt="338" ct="0" ts="1510058588187" s="true" lb="2 /robots.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="334" sby="309" ng="2" na="2"/>
+<httpSample t="281" it="0" lt="281" ct="0" ts="1510058588525" s="true" lb="1 /" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10039" sby="327" ng="2" na="2"/>
+<httpSample t="299" it="0" lt="299" ct="0" ts="1510058588806" s="true" lb="13 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9139" sby="378" ng="2" na="2"/>
+<httpSample t="308" it="0" lt="308" ct="14" ts="1510058589105" s="true" lb="15 /success.txt" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="395" sby="298" ng="2" na="2"/>
+<httpSample t="39523" it="0" lt="38627" ct="0" ts="1510058578456" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10528" sby="1383" ng="2" na="2">
+  <httpSample t="38627" it="0" lt="38627" ct="0" ts="1510058578456" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="715" sby="500" ng="2" na="2"/>
+  <httpSample t="325" it="0" lt="325" ct="2" ts="1510058617084" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="649" sby="441" ng="2" na="2"/>
+  <httpSample t="570" it="0" lt="398" ct="0" ts="1510058617409" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9164" sby="442" ng="2" na="2"/>
+</httpSample>
+<httpSample t="796" it="0" lt="412" ct="0" ts="1510058617979" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9789" sby="785" ng="2" na="2">
+  <httpSample t="412" it="0" lt="412" ct="0" ts="1510058617979" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="649" sby="392" ng="2" na="2"/>
+  <httpSample t="384" it="0" lt="384" ct="0" ts="1510058618391" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="393" ng="2" na="2"/>
+</httpSample>
+<httpSample t="803" it="0" lt="388" ct="0" ts="1510058618776" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9616" sby="904" ng="2" na="2">
+  <httpSample t="388" it="0" lt="388" ct="0" ts="1510058618776" s="true" lb="http://demo.testfire.net/bank/account.aspx" rc="301" rm="Moved Permanently" tn="Thread Group 1-2" dt="" by="476" sby="463" ng="2" na="2"/>
+  <httpSample t="415" it="0" lt="415" ct="2" ts="1510058619164" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="9140" sby="441" ng="2" na="2"/>
+</httpSample>
+<httpSample t="709" it="0" lt="317" ct="0" ts="1510058619580" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10657" sby="788" ng="2" na="2">
+  <httpSample t="317" it="0" lt="317" ct="0" ts="1510058619580" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-2" dt="text" by="641" sby="396" ng="2" na="2"/>
+  <httpSample t="391" it="0" lt="391" ct="0" ts="1510058619898" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+</httpSample>
+<httpSample t="304" it="0" lt="304" ct="0" ts="1510058620290" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="10016" sby="392" ng="2" na="2"/>
+<httpSample t="40518" it="0" lt="39673" ct="0" ts="1510058589413" s="true" lb="14 /bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10528" sby="1383" ng="1" na="1">
+  <httpSample t="39673" it="0" lt="39673" ct="0" ts="1510058589413" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="715" sby="500" ng="1" na="1"/>
+  <httpSample t="307" it="0" lt="307" ct="1" ts="1510058629085" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="649" sby="441" ng="1" na="1"/>
+  <httpSample t="539" it="0" lt="272" ct="0" ts="1510058629392" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9164" sby="442" ng="1" na="1"/>
+</httpSample>
+<httpSample t="567" it="0" lt="287" ct="0" ts="1510058629931" s="true" lb="16 /bank/main.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9789" sby="785" ng="1" na="1">
+  <httpSample t="287" it="0" lt="287" ct="0" ts="1510058629931" s="true" lb="http://demo.testfire.net/bank/main.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="649" sby="392" ng="1" na="1"/>
+  <httpSample t="280" it="0" lt="280" ct="0" ts="1510058630218" s="true" lb="http://demo.testfire.net/bank/login.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="9140" sby="393" ng="1" na="1"/>
+</httpSample>
+<httpSample t="300" it="0" lt="300" ct="0" ts="1510058630499" s="true" lb="17 /bank/account.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="557" sby="463" ng="1" na="1"/>
+<httpSample t="639" it="0" lt="352" ct="0" ts="1510058630800" s="true" lb="18 /bank/logout.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10657" sby="788" ng="1" na="1">
+  <httpSample t="352" it="0" lt="352" ct="0" ts="1510058630800" s="true" lb="http://demo.testfire.net/bank/logout.aspx" rc="302" rm="Found" tn="Thread Group 1-1" dt="text" by="641" sby="396" ng="1" na="1"/>
+  <httpSample t="287" it="0" lt="287" ct="1" ts="1510058631152" s="true" lb="http://demo.testfire.net/default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="1" na="1"/>
+</httpSample>
+<httpSample t="296" it="0" lt="296" ct="0" ts="1510058631440" s="true" lb="19 /default.aspx" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="10016" sby="392" ng="1" na="1"/>
+
+</testResults>
