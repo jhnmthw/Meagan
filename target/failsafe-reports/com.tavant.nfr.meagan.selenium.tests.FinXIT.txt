@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.tavant.nfr.meagan.selenium.tests.FinXIT
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 0.532 sec <<< FAILURE! - in com.tavant.nfr.meagan.selenium.tests.FinXIT
+setup(com.tavant.nfr.meagan.selenium.tests.FinXIT)  Time elapsed: 0.277 sec  <<< FAILURE!
+java.lang.NoSuchMethodError: org.slf4j.impl.StaticLoggerBinder.getSingleton()Lorg/slf4j/impl/StaticLoggerBinder;
+	at com.tavant.nfr.meagan.selenium.tests.FinXIT.setup(FinXIT.java:31)
+
