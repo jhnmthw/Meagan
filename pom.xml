@@ -20,6 +20,22 @@
 	<name>Meagan</name>
 	<description>A NFR Testing Framework</description>
 	<url>http://www.tavant.com</url>
+	<developers>
+		<developer>
+			<name>John Mathew</name>
+			<email>jhn.mthwjp@gmail.com</email>
+		</developer>
+		<developer>
+			<name>Sahil Verma</name>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/jhnmthw/meagan.git</connection>
+		<developerConnection>https://github.com/jhnmthw/meagan.git</developerConnection>
+		<url>https://github.com/jhnmthw/meagan</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<licenses>
 		<license>
@@ -53,10 +69,6 @@
 		<remote>false</remote>
 		<seleniumGridURL />
 		<zap-maven-plugin.version>1.2.1-0</zap-maven-plugin.version>
-		<concurrentUsers>2</concurrentUsers>
-		<rampUp></rampUp>
-		<iterations></iterations>
-		<duration></duration>
 	</properties>
 
 	<dependencies>
@@ -130,6 +142,17 @@
 			<version>1.0.13</version>
 		</dependency>
 		<dependency>
+			<groupId>org.jxls</groupId>
+			<artifactId>jxls-reader</artifactId>
+			<version>2.0.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.poi</groupId> -->
+		<!-- <artifactId>poi</artifactId> -->
+		<!-- <version>3.17</version> -->
+		<!-- </dependency> -->
+		<dependency>
 			<groupId>org.codehaus.mojo</groupId>
 			<artifactId>exec-maven-plugin</artifactId>
 			<version>1.6.0</version>
@@ -183,7 +206,6 @@
 								<configuration>
 									<files>
 										<file>security.config.properties</file>
-										<file>config.properties</file>
 									</files>
 								</configuration>
 							</execution>
@@ -274,32 +296,33 @@
 						<artifactId>zap-maven-plugin</artifactId>
 						<version>${zap-maven-plugin.version}</version>
 						<configuration>
-							<!-- Configuration parameters -->
+<!-- 							Configuration parameters -->
 							<zapPort>${proxyPort}</zapPort>
 							<targetUrl>${appURL}</targetUrl>
 							<zapPath>C:\Program Files\OWASP\Zed Attack Proxy</zapPath>
-							<username>${username}</username>
-							<password>${password}</password>
-							<loginUrl>${appURL}</loginUrl>
-							<seleniumDriver>${browser}</seleniumDriver>
-							<hostname>demo.testfire.net</hostname>
-							<usernameParameter>${username}</usernameParameter>
-							<passwordParameter>${password}</passwordParameter>
+<!-- 							<username>${username}</username> -->
+<!-- 							<password>${password}</password> -->
+<!-- 							<loginUrl>${appURL}</loginUrl> -->
+<!-- 							<seleniumDriver>${browser}</seleniumDriver> -->
+<!-- 							<hostname>demo.testfire.net</hostname> -->
+<!-- 							<usernameParameter>${username}</usernameParameter> -->
+<!-- 							<passwordParameter>${password}</passwordParameter> -->
 							<spiderStartingPointUrl>${appURL}</spiderStartingPointUrl>
 							<activeScanStartingPointUrl>${appURL}</activeScanStartingPointUrl>
 							<shouldStartNewSession>false</shouldStartNewSession>
 							<zapOptions>-newsession C:\Users\john.mathew\Desktop\zap\session
-								-config connection.proxyChain.hostName=localhost -config
-								connection.proxyChain.port=8081</zapOptions>
-							<authenticationType>selenium</authenticationType>
+								</zapOptions> 
+<!-- 								-config connection.proxyChain.hostName=localhost -config -->
+<!-- 								connection.proxyChain.port=8081 -->
+<!-- 							<authenticationType>selenium</authenticationType> -->
 						</configuration>
 						<executions>
-							<execution>
-								<phase>verify</phase>
-								<goals>
-									<goal>analyze</goal>
-								</goals>
-							</execution>
+<!-- 							<execution> -->
+<!-- 								<phase>verify</phase> -->
+<!-- 								<goals> -->
+<!-- 									<goal>analyze</goal> -->
+<!-- 								</goals> -->
+<!-- 							</execution> -->
 							<execution>
 								<id>start-zap</id>
 								<phase>pre-integration-test</phase>
@@ -330,27 +353,13 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.5.0</version>
-						<executions>
-							<execution>
-								<phase>pre-integration-test</phase>
-								<goals>
-									<goal>java</goal>
-								</goals>
-							</execution>
-						</executions>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
 						<configuration>
-							<mainClass>com.tavant.nfr.meagan.NFR</mainClass>
-							<executable>maven</executable>
-							<!-- optional -->
-							<!-- <workingDirectory></workingDirectory> -->
-							<arguments>
-								<argument>-X</argument>
-								<argument>verify</argument>
-							</arguments>
+							<source>${java.version}</source>
+							<target>${java.version}</target>
 						</configuration>
+						<version>${maven-compiler-plugin.version}</version>
 					</plugin>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
@@ -364,8 +373,7 @@
 								</goals>
 								<configuration>
 									<files>
-										<file>performance.config.properties</file>
-										<file>config.properties</file>
+										<file>${project.basedir}/performance.config.properties</file>
 									</files>
 								</configuration>
 							</execution>
@@ -377,7 +385,7 @@
 						<version>2.2.0</version>
 						<executions>
 							<execution>
-								<phase>pre-integration-test</phase>
+								<phase>integration-test</phase>
 								<id>jmeter-tests</id>
 								<goals>
 									<goal>jmeter</goal>
@@ -387,15 +395,17 @@
 						<configuration>
 							<jmeterVersion>3.2</jmeterVersion>
 							<testFilesIncluded>
-								<jMeterTestFile>${jmxPath}</jMeterTestFile>
-								<!-- <jMeterTestFile>test2.jmx</jMeterTestFile> -->
+								<!-- <jMeterTestFile>${jmxPath}</jMeterTestFile> -->
+								<jMeterTestFile>test.jmx</jMeterTestFile>
 							</testFilesIncluded>
 							<jmeterVersion>3.2</jmeterVersion>
 							<resultsFileFormat>jtl</resultsFileFormat>
 							<ignoreResultFailures>true</ignoreResultFailures>
 							<propertiesUser>
-								<threads>${concurrentUsers}</threads>
-								<testIterations>${iterations}</testIterations>
+								<threads>${Users}</threads>
+								<testIterations>${Iteration}</testIterations>
+								<duration>${duration}</duration>
+								<rampup>${Rampup}</rampup>
 							</propertiesUser>
 							<!-- <jmeterPlugins> -->
 							<!-- <plugin> -->
@@ -435,11 +445,11 @@
 									<!-- An AntPath-Style pattern matching a JMeter XML result file 
 										to analyze. Must be a fully qualified path. File may be GZiped, must end 
 										in .gz then. Default: not set. Required. -->
-									<source>${project.build.directory}\jmeter\results\20171106-test.jtl</source>
+									<source>${project.build.directory}/jmeter/results/*.jtl</source>
 
 									<!-- directory where to store analysis result files. Default: ${project.build.directory} 
 										Required. -->
-									<targetDirectory>${project.build.directory}\jmeter\results</targetDirectory>
+									<targetDirectory>${project.build.directory}/jmeter/results</targetDirectory>
 
 									<!-- Build failed if source directory is not found. Default: true -->
 									<sourceDirFailed>true</sourceDirFailed>
@@ -574,6 +584,29 @@
 								</configuration>
 							</execution>
 						</executions>
+					</plugin>
+										<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.5.0</version>
+						<executions>
+							<execution>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>com.tavant.nfr.meagan.jmeter.ExcelSheetManager</mainClass>
+							<executable>maven</executable>
+							<!-- optional -->
+<!-- 							<workingDirectory>${project.build.directory}</workingDirectory> -->
+							<arguments>
+								<argument>-X</argument>
+								<argument>verify</argument>	
+							</arguments>
+						</configuration>
 					</plugin>
 				</plugins>
 			</build>

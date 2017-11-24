@@ -3,16 +3,15 @@
 <suite thread-count="1" verbose="0" name="Failed suite [Surefire suite]" parallel="methods">
   <test name="Surefire test(failed)" parallel="methods">
     <classes>
-      <class name="com.tavant.nfr.meagan.selenium.tests.FinXIT">
+      <class name="com.tavant.nfr.meagan.selenium.tests.ZapTestIT">
         <methods>
           <include name="closeDriverObjects"/>
-          <include name="launchBrowser"/>
-          <include name="clearCookies"/>
           <include name="setup"/>
           <include name="login"/>
+          <include name="clearCookies"/>
           <include name="instantiateDriverObject"/>
         </methods>
-      </class> <!-- com.tavant.nfr.meagan.selenium.tests.FinXIT -->
+      </class> <!-- com.tavant.nfr.meagan.selenium.tests.ZapTestIT -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->
