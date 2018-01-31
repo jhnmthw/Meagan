@@ -25,9 +25,6 @@
 			<name>John Mathew</name>
 			<email>jhn.mthwjp@gmail.com</email>
 		</developer>
-		<developer>
-			<name>Sahil Verma</name>
-		</developer>
 	</developers>
 
 	<scm>
@@ -36,7 +33,6 @@
 		<url>https://github.com/jhnmthw/meagan</url>
 		<tag>HEAD</tag>
 	</scm>
-
 	<licenses>
 		<license>
 			<name>Apache 2</name>
@@ -45,43 +41,40 @@
 			<comments>A business-friendly OSS license</comments>
 		</license>
 	</licenses>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<!--Dependency Versions -->
-		<selenium.version>3.3.1</selenium.version>
-		<hamcrest-all.version>1.3</hamcrest-all.version>
-		<phantomjsdriver.version>1.4.1</phantomjsdriver.version>
+		<selenium.version>3.7.1</selenium.version>
+		<assertj-core.version>3.8.0</assertj-core.version>
+		<phantomjsdriver.version>1.4.3</phantomjsdriver.version>
 		<testng.version>6.11</testng.version>
 		<!--Plugin Versions -->
-		<driver-binary-downloader-maven-plugin.version>1.0.14</driver-binary-downloader-maven-plugin.version>
-		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
-		<maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
+		<driver-binary-downloader-maven-plugin.version>1.0.16</driver-binary-downloader-maven-plugin.version>
+		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+		<maven-failsafe-plugin.version>2.20.1</maven-failsafe-plugin.version>
 		<!--Configuration Properties -->
 		<overwrite.binaries>true</overwrite.binaries>
 		<read.timeout>30000</read.timeout>
 		<connection.timeout>40000</connection.timeout>
 		<retry.attempts>4</retry.attempts>
-		<!-- <browser>chrome</browser> -->
 		<threads>1</threads>
 		<remote>false</remote>
 		<seleniumGridURL />
 		<zap-maven-plugin.version>1.2.1-0</zap-maven-plugin.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
-			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<version>${hamcrest-all.version}</version>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj-core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-remote-driver</artifactId>
 			<version>${selenium.version}</version>
-			<scope>test</scope>
+			<!-- <scope>test</scope> -->
 			<exclusions>
 				<exclusion>
 					<groupId>com.github.detro.ghostdriver</groupId>
@@ -93,7 +86,7 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
-			<scope>test</scope>
+			<!-- <scope>test</scope> -->
 			<exclusions>
 				<exclusion>
 					<groupId>com.github.detro.ghostdriver</groupId>
@@ -105,7 +98,14 @@
 			<groupId>com.codeborne</groupId>
 			<artifactId>phantomjsdriver</artifactId>
 			<version>${phantomjsdriver.version}</version>
-			<scope>test</scope>
+			<!-- <scope>test</scope> -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.htmlunit/htmlunit -->
+		<dependency>
+			<groupId>net.sourceforge.htmlunit</groupId>
+			<artifactId>htmlunit</artifactId>
+			<version>2.28</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -117,13 +117,13 @@
 		<dependency>
 			<groupId>org.zaproxy</groupId>
 			<artifactId>zap-clientapi</artifactId>
-			<version>1.3.0</version>
+			<version>1.5.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.zaproxy/zap -->
 		<dependency>
 			<groupId>org.zaproxy</groupId>
 			<artifactId>zap</artifactId>
-			<version>2.6.0</version>
+			<version>2.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -179,6 +179,17 @@
 			<version>1.6.6</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- http://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.11.2</version>
+		</dependency>
+		<dependency>
+			<groupId>uk.co.deliverymind</groupId>
+			<artifactId>jmeter-lightning-maven-plugin</artifactId>
+			<version>1.4.0</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>
@@ -186,10 +197,10 @@
 			<id>security</id>
 			<activation>
 				<!-- <activeByDefault>true</activeByDefault> -->
-				<property>
-					<name>testingProfile</name>
-					<value>security</value>
-				</property>
+				<!-- <property> -->
+				<!-- <name>testingProfile</name> -->
+				<!-- <value>security</value> -->
+				<!-- </property> -->
 			</activation>
 			<build>
 				<plugins>
@@ -247,6 +258,23 @@
 						</executions>
 					</plugin>
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>buildnumber-maven-plugin</artifactId>
+						<version>1.4</version>
+						<executions>
+							<execution>
+								<phase>validate</phase>
+								<goals>
+									<goal>create-timestamp</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<timestampFormat>yyyy-MM-dd</timestampFormat>
+							<timestampPropertyName>build.date</timestampPropertyName>
+						</configuration>
+					</plugin>
+					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-failsafe-plugin</artifactId>
 						<version>${maven-failsafe-plugin.version}</version>
@@ -296,33 +324,39 @@
 						<artifactId>zap-maven-plugin</artifactId>
 						<version>${zap-maven-plugin.version}</version>
 						<configuration>
-<!-- 							Configuration parameters -->
+							<!-- Configuration parameters -->
 							<zapPort>${proxyPort}</zapPort>
 							<targetUrl>${appURL}</targetUrl>
 							<zapPath>C:\Program Files\OWASP\Zed Attack Proxy</zapPath>
-<!-- 							<username>${username}</username> -->
-<!-- 							<password>${password}</password> -->
-<!-- 							<loginUrl>${appURL}</loginUrl> -->
-<!-- 							<seleniumDriver>${browser}</seleniumDriver> -->
-<!-- 							<hostname>demo.testfire.net</hostname> -->
-<!-- 							<usernameParameter>${username}</usernameParameter> -->
-<!-- 							<passwordParameter>${password}</passwordParameter> -->
+							<hostname>finexp-alb-2137398505.us-east-1.elb.amazonaws.com</hostname>
+							<usernameParameter>${username}</usernameParameter>
+							<passwordParameter>${password}</passwordParameter>
 							<spiderStartingPointUrl>${appURL}</spiderStartingPointUrl>
 							<activeScanStartingPointUrl>${appURL}</activeScanStartingPointUrl>
 							<shouldStartNewSession>false</shouldStartNewSession>
-							<zapOptions>-newsession C:\Users\john.mathew\Desktop\zap\session
-								</zapOptions> 
-<!-- 								-config connection.proxyChain.hostName=localhost -config -->
-<!-- 								connection.proxyChain.port=8081 -->
-<!-- 							<authenticationType>selenium</authenticationType> -->
+							<zapOptions>-newsession D:\ZAP_Sessions\${build.date}-session</zapOptions>
+							<!-- -config connection.proxyChain.hostName=localhost -config -->
+							<!-- connection.proxyChain.port=8081 -->
+							<!-- <authenticationType>selenium</authenticationType> -->
+							<shouldRunAjaxSpider>true</shouldRunAjaxSpider>
+							<excludeFromScan><!--logout regex -->
+							</excludeFromScan>
+							<!-- <authenticationType>selenium</authenticationType> -->
+							<username>${username}</username>
+							<password>${password}</password>
+							<loginUrl>http://finexp-alb-2137398505.us-east-1.elb.amazonaws.com/finexpusermgmt/login</loginUrl>
+							<httpSessionTokens>
+								<token>finxp-auth-token</token>
+							</httpSessionTokens>
+							<seleniumDriver>firefox</seleniumDriver>
 						</configuration>
 						<executions>
-<!-- 							<execution> -->
-<!-- 								<phase>verify</phase> -->
-<!-- 								<goals> -->
-<!-- 									<goal>analyze</goal> -->
-<!-- 								</goals> -->
-<!-- 							</execution> -->
+							<execution>
+								<phase>verify</phase>
+								<goals>
+									<goal>analyze</goal>
+								</goals>
+							</execution>
 							<execution>
 								<id>start-zap</id>
 								<phase>pre-integration-test</phase>
@@ -330,13 +364,13 @@
 									<goal>startZap</goal>
 								</goals>
 							</execution>
-							<execution>
-								<id>selenium-analyze</id>
-								<phase>post-integration-test</phase>
-								<goals>
-									<goal>seleniumAnalyze</goal>
-								</goals>
-							</execution>
+							<!-- <execution> -->
+							<!-- <id>selenium-analyze</id> -->
+							<!-- <phase>post-integration-test</phase> -->
+							<!-- <goals> -->
+							<!-- <goal>seleniumAnalyze</goal> -->
+							<!-- </goals> -->
+							<!-- </execution> -->
 						</executions>
 					</plugin>
 				</plugins>
@@ -345,10 +379,6 @@
 		<profile>
 			<id>performance</id>
 			<activation>
-				<property>
-					<name>testingProfile</name>
-					<value>performance</value>
-				</property>
 			</activation>
 			<build>
 				<plugins>
@@ -373,7 +403,7 @@
 								</goals>
 								<configuration>
 									<files>
-										<file>${project.basedir}/performance.config.properties</file>
+										<file>performance.config.properties</file>
 									</files>
 								</configuration>
 							</execution>
@@ -382,7 +412,7 @@
 					<plugin>
 						<groupId>com.lazerycode.jmeter</groupId>
 						<artifactId>jmeter-maven-plugin</artifactId>
-						<version>2.2.0</version>
+						<version>2.6.0</version>
 						<executions>
 							<execution>
 								<phase>integration-test</phase>
@@ -391,50 +421,207 @@
 									<goal>jmeter</goal>
 								</goals>
 							</execution>
+							<execution>
+								<id>jmeter-check-results</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>results</goal>
+								</goals>
+							</execution>
+							<execution>
+								<phase>verify</phase>
+								<id>jmeter</id>
+								<goals>
+									<goal>gui</goal>
+								</goals>
+							</execution>
 						</executions>
 						<configuration>
-							<jmeterVersion>3.2</jmeterVersion>
+							<jmeterVersion>3.3</jmeterVersion>
 							<testFilesIncluded>
-								<!-- <jMeterTestFile>${jmxPath}</jMeterTestFile> -->
-								<jMeterTestFile>test.jmx</jMeterTestFile>
+								<jMeterTestFile>${jmxPath}</jMeterTestFile>
+								<jMeterTestFile>Challengers.jmx</jMeterTestFile>
 							</testFilesIncluded>
-							<jmeterVersion>3.2</jmeterVersion>
-							<resultsFileFormat>jtl</resultsFileFormat>
+							<resultsFileFormat>xml</resultsFileFormat>
+							<generateReports>false</generateReports>
 							<ignoreResultFailures>true</ignoreResultFailures>
 							<propertiesUser>
-								<threads>${Users}</threads>
-								<testIterations>${Iteration}</testIterations>
+								<threads>${users}</threads>
+								<testIterations>${iteration}</testIterations>
 								<duration>${duration}</duration>
-								<rampup>${Rampup}</rampup>
+								<rampup>${rampup}</rampup>
+								<jmeter.reportgenerator.date_format>yyyyMMdd</jmeter.reportgenerator.date_format>
 							</propertiesUser>
-							<!-- <jmeterPlugins> -->
-							<!-- <plugin> -->
-							<!-- <groupId>kg.apc</groupId> -->
-							<!-- <artifactId>jmeter-plugins-common</artifactId> -->
-							<!-- </plugin> -->
-							<!-- <plugin> -->
-							<!-- <groupId>kg.apc</groupId> -->
-							<!-- <artifactId>jmeter-plugins-standard</artifactId> -->
-							<!-- </plugin> -->
-							<!-- <plugin> -->
-							<!-- <groupId>kg.apc</groupId> -->
-							<!-- <artifactId>jmeter-plugins-extras</artifactId> -->
-							<!-- </plugin> -->
-							<!-- <plugin> -->
-							<!-- <groupId>kg.apc</groupId> -->
-							<!-- <artifactId>jmeter-plugins-extras-libs</artifactId> -->
-							<!-- </plugin> -->
-							<!-- <plugin> -->
-							<!-- <groupId>kg.apc</groupId> -->
-							<!-- <artifactId>jmeter-plugins-webdriver</artifactId> -->
-							<!-- </plugin> -->
-							<!-- </jmeterPlugins> -->
+							<testPlanLibraries>
+								<artifact>kg.apc:jmeter-plugins-cmn-jmeter:0.5</artifact>
+								<artifact>kg.apc:cmdrunner:2.0</artifact>
+							</testPlanLibraries>
+							<jmeterExtensions>
+								<!-- <artifact>kg.apc:jmeter-plugins-casutg:2.4</artifact> -->
+								<!-- <artifact>kg.apc:jmeter-plugins-extras:1.4.0</artifact> -->
+								<!-- <artifact>kg.apc:jmeter-plugins-standard:1.4.0</artifact> -->
+								<artifact>kg.apc:jmeter-plugins-manager:0.18</artifact>
+								<!-- <artifact>org.codehaus.groovy:groovy-all:2.4.12</artifact> -->
+								<!-- <artifact>kg.apc:jmeter-plugins-oauth:0.1</artifact> -->
+								<!-- <artifact>kg.apc:jmeter-plugins-extras-libs:1.4.0</artifact> -->
+								<artifact>kg.apc:jmeter-plugins-cmd:2.1</artifact>
+								<artifact>kg.apc:jmeter-plugins-filterresults:2.1</artifact>
+								<artifact>kg.apc:jmeter-plugins-graphs-basic:2.0</artifact>
+
+								<!-- For CMD runner tool to work - need latest version of synthesis 
+									reoprt plugin -->
+								<artifact>kg.apc:jmeter-plugins-synthesis:2.1</artifact>
+							</jmeterExtensions>
+							<!-- The plugin uses some broken dependencies An alternative is to 
+								set this to true and use exclusions, see below -->
+							<downloadJMeterDependencies>${downloadDependencies}</downloadJMeterDependencies>
+							<downloadExtensionDependencies>${downloadDependencies}</downloadExtensionDependencies>
+							<downloadLibraryDependencies>${downloadDependencies}</downloadLibraryDependencies>
+							<excludedArtifacts>
+								<exclusion>commons-math3:commons-math3</exclusion>
+								<exclusion>commons-pool2:commons-pool2</exclusion>
+								<exclusion>org.apache.jmeter:jorphan</exclusion>
+								<exclusion>org.apache.bsf:bsf-api</exclusion>
+								<exclusion>org.bouncycastle:bcmail-jdk15</exclusion>
+								<exclusion>org.bouncycastle:bcprov-jdk15</exclusion>
+								<exclusion>javax.activation:activation</exclusion>
+								<exclusion>commons-logging:commons-logging</exclusion>
+							</excludedArtifacts>
+							<!-- <remoteConfig> -->
+							<!-- <startServersBeforeTests>true</startServersBeforeTests> -->
+							<!-- <stopServersAfterTests>true</stopServersAfterTests> -->
+							<!-- </remoteConfig> -->
+							<guiTestFile>src/test/jmeter/${jmxPath}</guiTestFile>
 						</configuration>
+					</plugin>
+					<!-- <plugin> -->
+					<!-- <groupId>uk.co.deliverymind</groupId> -->
+					<!-- <artifactId>jmeter-lightning-maven-plugin</artifactId> -->
+					<!-- <version>1.4.0</version> -->
+					<!-- <executions> -->
+					<!-- <execution> -->
+					<!-- <goals> -->
+					<!-- <goal>lightning</goal> -->
+					<!-- </goals> -->
+					<!-- </execution> -->
+					<!-- </executions> -->
+					<!-- <configuration> -->
+					<!-- <mode>report</mode> -->
+					<!-- <jmeterCsv>C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\20180130-Challengers.csv</jmeterCsv> -->
+					<!-- </configuration> -->
+					<!-- </plugin> -->
+					<plugin>
+						<groupId>com.googlecode.maven-download-plugin</groupId>
+						<artifactId>download-maven-plugin</artifactId>
+						<version>1.4.0</version>
+						<executions>
+							<execution>
+								<id>install-cmd-runner</id>
+								<phase>pre-site</phase>
+								<goals>
+									<goal>wget</goal>
+								</goals>
+								<configuration>
+									<url>https://jmeter-plugins.org/files/packages/jpgc-cmd-2.1.zip</url>
+									<!-- <uri>https://jmeter-plugins.org/files/packages/jpgc-cmd-2.1.zip</uri> -->
+									<unpack>true</unpack>
+									<outputDirectory>${project.build.directory}/jmeter</outputDirectory>
+									<!-- <md5>df65b5642f33676313ebe4d5b69a3fff</md5> -->
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- <plugin> -->
+					<!-- <groupId>org.jhnmthw</groupId> -->
+					<!-- <artifactId>aggregate-report-maven-plugin</artifactId> -->
+					<!-- <version>0.0.1-SNAPSHOT</version> -->
+					<!-- <executions> -->
+					<!-- <execution> -->
+					<!-- <goals> -->
+					<!-- <goal>create-aggregate-report</goal> -->
+					<!-- </goals> -->
+					<!-- <phase>post-integration-test</phase> -->
+					<!-- <configuration> -->
+					<!-- <inputFile>${project.build.directory}/jmeter/results/20180123-Challengers.jtl</inputFile> -->
+					<!-- <graphs> -->
+					<!-- <graph> -->
+					<!-- <pluginType>ThreadsStateOverTime</pluginType> -->
+					<!-- <width>800</width> -->
+					<!-- <height>600</height> -->
+					<!-- <outputFile>${project.build.directory}/jmeter/results/SimpleWebservicePerformanceTest-ThreadsStateOverTime.png</outputFile> -->
+					<!-- </graph> -->
+					<!-- ... you can declare more <graph>-elements here -->
+					<!-- </graphs> -->
+					<!-- </configuration> -->
+					<!-- </execution> -->
+					<!-- </executions> -->
+					<!-- </plugin> -->
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<id>default-cli</id>
+								<phase>pre-site</phase>
+								<configuration>
+									<target>
+										<copy
+											file="${project.basedir}/src/test/resources/template/Jmeter_Reporting_Template.xlsx"
+											tofile="${project.basedir}/target/jmeter/Jmeter_Reporting_Template.xlsx" />
+										<!-- <copy todir="${project.basedir}/target/jmeter/" -->
+										<!-- overwrite="true"> -->
+										<!-- <fileset -->
+										<!-- dir="${project.basedir}/target/jmeter/apache-jmeter-3.3/" -->
+										<!-- includes="**" /> -->
+										<!-- </copy> -->
+										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
+											<arg value="-jar" />
+											<arg value="cmdrunner-2.0.jar" />
+											<arg value="--tool" />
+											<arg value="Reporter" />
+											<arg value="--generate-csv" />
+											<arg value="test.csv" />
+											<arg value="--input-jtl" />
+											<arg
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\20180131-Challengers.jtl" />
+											<arg value="--plugin-type" />
+											<arg value="AggregateReport" />
+										</exec>
+										<move file="${project.basedir}/target/jmeter/lib/test.csv" todir="${project.basedir}/target/jmeter/results"/>
+										<!-- <java -->
+										<!-- jar="${project.basedir}/target/jmeter/lib/ext/cmdrunner-2.0.jar" -->
+										<!-- fork="true" failonerror="true" maxmemory="128m"> -->
+										<!-- <arg value="tool"/> -->
+										<!-- <arg value="Reporter"/> -->
+										<!-- <arg value="generate-csv"/> -->
+										<!-- <arg value="Aggregate_${build.date}.csv"/> -->
+										<!-- <arg value="input-jtl"/> -->
+										<!-- <arg value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\20180105-Challengers.jtl"/> -->
+										<!-- <arg value="plugin-type"/> -->
+										<!-- <arg value="AggregateReport"/> -->
+										<!-- </java> -->
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>flush-jmeter-lib</id>
+								<phase>post-site</phase>
+								<configuration>
+									<target>
+										<delete dir="${project.basedir}/target/jmeter/lib/"
+											includeemptydirs="true" />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
 					</plugin>
 					<plugin>
 						<groupId>com.lazerycode.jmeter</groupId>
 						<artifactId>jmeter-analysis-maven-plugin</artifactId>
-						<version>1.0.6</version>
+						<version>1.0.7-SNAPSHOT</version>
 						<executions>
 							<execution>
 								<phase>post-integration-test</phase>
@@ -544,7 +731,7 @@
 										subfolders of the templateDirectory: csv, html, text The entry template must 
 										be called "main.ftl". For example, templateDirectory/text/main.ftl will be 
 										used for generating the console output. Default: not set. -->
-									<templateDirectory>${project.basedir}/src/main/resources/</templateDirectory>
+									<!-- <templateDirectory>${project.basedir}/src/main/resources/templates</templateDirectory> -->
 
 									<!-- Mapping from resource URL to file name. Every resource will 
 										be downloaded and stored in 'targetDirectory' with the given filename. Tokens 
@@ -585,10 +772,10 @@
 							</execution>
 						</executions>
 					</plugin>
-										<plugin>
+					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.5.0</version>
+						<version>1.6.0</version>
 						<executions>
 							<execution>
 								<phase>post-integration-test</phase>
@@ -601,10 +788,10 @@
 							<mainClass>com.tavant.nfr.meagan.jmeter.ExcelSheetManager</mainClass>
 							<executable>maven</executable>
 							<!-- optional -->
-<!-- 							<workingDirectory>${project.build.directory}</workingDirectory> -->
+							<workingDirectory>${project.build.directory}</workingDirectory>
 							<arguments>
 								<argument>-X</argument>
-								<argument>verify</argument>	
+								<argument>verify</argument>
 							</arguments>
 						</configuration>
 					</plugin>

@@ -3,7 +3,9 @@ package com.tavant.nfr.meagan.selenium;
 import com.tavant.nfr.meagan.selenium.config.DriverFactory;
 import com.tavant.nfr.meagan.selenium.listeners.ScreenshotListener;
 
+import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -37,7 +39,12 @@ public class DriverBase {
 
     @AfterMethod(alwaysRun = true)
     public static void clearCookies() throws Exception {
+    	try{
         getDriver().manage().deleteAllCookies();
+    	}catch(WebDriverException e){
+    		System.out.println("*************Broser is closed******************");
+    		System.out.println("Continuing.....");
+    	}
     }
 
     @AfterSuite(alwaysRun = true)
