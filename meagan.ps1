@@ -38,11 +38,12 @@ mvn -P $testingProfile pre-site
 }
 Else {
 Write-Host "============================================================================================================================================================================"
-mvn clean integration-test -P $testingProfile jmeter-maven-plugin:jmeter@jmeter-tests
+mvn clean integration-test -P $testingProfile 
 Write-Host "Reconfiguring JMeter to create Aggregate Report" -ForegroundColor Yellow
-mvn jmeter:configure -DdownloadDependencies=false
-mvn com.googlecode.maven-download-plugin:download-maven-plugin:wget@install-cmd-runner
-mvn antrun:run
+Write-Host "Flushing JMeter lib directory" -ForegroundColor Yellow
+mvn -P $testingProfile antrun:run@flush-jmeter-lib
+mvn -P $testingProfile jmeter:configure -DdownloadDependencies=false
+mvn -P $testingProfile pre-site
 }
 } 						
 					
