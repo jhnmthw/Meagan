@@ -8,12 +8,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
@@ -32,47 +35,74 @@ import com.tavant.nfr.meagan.jmeter.JmeterResultsSummary;
 public class ExcelSheetManager {
 
 	private static String templatePath = "target/jmeter/Jmeter_Reporting_Template.xlsx";
-	private static String reportPath = "target/jmeter/results/Report.xlsx";
+	private static String reportPath = "target/jmeter/results/Report-" + new SimpleDateFormat("yyyyMMdd").format(Calendar.getInstance().getTime()) + ".xlsx";
 	static Logger logger = LoggerFactory.getLogger(ExcelSheetManager.class);
 
 	public static void main(String args[]) throws ParseException, IOException {
 		
 		logger.info("Processing JMeter Report Template....");
-		prepareTemplate();
 		
-		JmeterResultsSummary summary = new JmeterResultsSummary();
+		Workbook workbook = getWorkbook(templatePath);
+		prepareTemplate(workbook, workbook.getSheetAt(0),"success");
+		prepareTemplate(workbook, workbook.getSheetAt(1),"all");
+		prepareTemplate(workbook, workbook.getSheetAt(3), "error");
+		
+		
+		JmeterResultsSummary successSummary = new JmeterResultsSummary();
+		JmeterResultsSummary allSummary = new JmeterResultsSummary();
+		JmeterResultsSummary errorSummary = new JmeterResultsSummary();
+		
+		
+		successSummary.getSummary(new File(System.getProperty("maven.multiModuleProjectDirectory")
+					+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(successSummary.formatter) + "-success.csv"));
+		
+		successSummary.getSummaryHeaders();
+		allSummary.getSummaryHeaders();
+		errorSummary.getSummaryHeaders();
+		
+		
+		allSummary.getSummary(new File(System.getProperty("maven.multiModuleProjectDirectory")
+				+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(allSummary.formatter) + ".csv"));
+		errorSummary.getSummary(new File(System.getProperty("maven.multiModuleProjectDirectory")
+				+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(errorSummary.formatter) + "-errors.csv"));
+		
+		List<JmeterResultsSummary> summarys = new ArrayList<JmeterResultsSummary>();
+		summarys.add(successSummary);
+		summarys.add(allSummary);
+		summarys.add(errorSummary);
+		
+
 		
 		logger.info("Creating JMeter Report from Template....");
 
-		createReport(summary);
+		createReport(summarys);
 
 	}
 	
-	private static void createReport(JmeterResultsSummary summary) throws FileNotFoundException, IOException{
+	private static void createReport(List<JmeterResultsSummary> summarys) throws FileNotFoundException, IOException{
 		try (FileInputStream is = new FileInputStream(new File(templatePath))) {
 			try (FileOutputStream os = new FileOutputStream(reportPath)) {
-				List<JmeterResultsSummary> summarys = new ArrayList<JmeterResultsSummary>();
-				summarys.add(summary);
 				Context context = new Context();
+				
 				context.putVar("summarys", summarys);
+				
 				JxlsHelper.getInstance().processTemplate(is, os, context);
+
 
 			}
 
 		}
 	}
 	
-	private static void prepareTemplate() throws ParseException, IOException {
-		Workbook workbook = getWorkbook(templatePath);
-		Sheet sheet = workbook.getSheetAt(0);
+	private static void prepareTemplate(Workbook workbook, Sheet sheet, String type) throws ParseException, IOException {
+		
 
-		int rowCount = findRow(sheet, "Transactions");
-		;
+		int rowCount = findRow(sheet, "Label");
 
-		String[] placeholderArray = { "summary.transactions", "summary.samples", "summary.averageResponseTime",
-				"summary.minimumResponseTime", "summary.maximumResponseTime",
-				"summary.stdDeviation", "summary.error", "summary.transactionsPerSec", "summary.kbPerSecond",
-				"summary.averageBytes" };
+		String[] placeholderArray = { type + "Summary.transactions", type + "Summary.noOfSamples", type + "Summary.averageResponseTime",
+				type + "Summary.minimumResponseTime", type + "Summary.maximumResponseTime", type + "Summary.ninetyPercentLine",
+				type + "Summary.stdDeviation", type + "Summary.error", type + "Summary.transactionsPerSec", type + "Summary.kbPerSecond",
+				type + "Summary.averageBytes" };
 
 		String testFileName = new File(System.getProperty("maven.multiModuleProjectDirectory") + "/src/test/jmeter/")
 				.listFiles()[0].getName().split(".jmx")[0];
@@ -80,26 +110,29 @@ public class ExcelSheetManager {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMMdd");
 
 		int noOfTransactions = Files.readAllLines(Paths.get(
-				System.getProperty("maven.multiModuleProjectDirectory") + "/target/jmeter/results/default-durations-"
-						+ LocalDate.now().format(formatter) + "-" + testFileName + ".csv"))
-				.size() - 1;
+				System.getProperty("maven.multiModuleProjectDirectory") + "/target/jmeter/results/AggregateReport-"
+						+ LocalDate.now().format(formatter) + ".csv"))
+				.size() - 2;
 
 		for (int currentRow = 0; currentRow < noOfTransactions; currentRow++) {
 			Row row = sheet.createRow(++rowCount);
 			writePlaceholderArrayToRows(placeholderArray, row, currentRow);
 		}
 		
-		String[] placeholders = {"summary.users", "summary.time","summary.duration","summary.requests","summary.requestsPerSecond"};
+		if(type.equals("success")) {
+			
 		rowCount = findRow(sheet, "Summary");
+		
 
+			String[] placeholders = { type + "Summary.users", type + "Summary.time", type + "Summary.duration", type + "Summary.requests", type + "Summary.requestsPerSecond"};
 		for (int currentRow = 0; currentRow < placeholders.length; currentRow++) {
 			Row row = sheet.getRow(++rowCount);
 			writePlaceholderToRows(placeholders[currentRow], row);
 		}
+		}
 		try (FileOutputStream outputStream = new FileOutputStream(templatePath)) {
 			workbook.write(outputStream);
 		}
-
 	}
 
 	private static Workbook getWorkbook(String excelFilePath) throws IOException {
@@ -148,6 +181,8 @@ public class ExcelSheetManager {
 			cell = row.createCell(2);
 			CellStyle cs = row.getCell(1).getCellStyle();
 			cs.setAlignment(HorizontalAlignment.RIGHT);
+			//BorderStyle bs = BorderStyle.MEDIUM;
+			//cs.setBorderBottom(bs);
 			cell.setCellStyle(cs);
 			cell.setCellValue("${" + placeholder + "}");
 		

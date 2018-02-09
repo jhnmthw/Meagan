@@ -1,150 +1,80 @@
 //package com.tavant.nfr.meagan.selenium.tests;
-//import java.util.concurrent.TimeUnit;
 //
-//import org.openqa.selenium.Alert;
-//import org.openqa.selenium.By;
-//import org.openqa.selenium.WebDriver;
-//import org.openqa.selenium.WebElement;
-//import org.seleniumhq.jetty9.util.security.Credential;
-////import org.openqa.selenium.Cookie;
-//import org.testng.Assert;
-//import org.testng.annotations.BeforeClass;
-//import org.testng.annotations.Test;
+//import java.util.regex.Pattern;
+//import java.util.concurrent.TimeUnit;
+//import org.testng.annotations.*;
 //
 //import com.tavant.nfr.meagan.selenium.DriverBase;
 //
-//public class FinXIT extends DriverBase {
-//  
-//    WebDriver driver;
-//    WebElement usernameElement;
-//    WebElement passwordElement;
-//    WebElement loginButton;
-//    WebElement logoutButton;
-//    WebElement loginButtonHead;
-//    
+//import static org.testng.Assert.*;
+//import org.openqa.selenium.*;
+//import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.support.ui.Select;
 //
+//public class FinXIT extends DriverBase{
+//  private WebDriver driver;
+//  private String baseUrl;
+//  private boolean acceptNextAlert = true;
+//  private StringBuffer verificationErrors = new StringBuffer();
 //
-//	@BeforeClass
-//	public void setup() throws Exception{
-//        // Create a new WebDriver instance
-//        // Notice that the remainder of the code relies on the interface,
-//        // not the implementation.
-//	
-//		driver = getDriver();
-//	}
-//	
-//	@Test
-//	public void launchBrowser() {
-//		
+//  @BeforeClass(alwaysRun = true)
+//  public void setUp() throws Exception {
+//    driver = getDriver();
 //
-//        //navigating application URL
-//       driver.get(System.getProperty("appURL"));
-//        
-//	}  
-//	
-//	
-//	@Test
-//	 public void login() throws Exception{  
-//	   
-//		// Implicit Wait
-//       driver.manage().timeouts().implicitlyWait(1,TimeUnit.MINUTES) ;
-//       
-////       	loginButtonHead = driver.findElement(By.xpath(System.getProperty("loginBtnHeadXPath")));
-////       	
-////        if(loginButtonHead!=null)
-////        {
-////        	
-////       	 	loginButtonHead.click();
-////       	 	Thread.sleep(1000);
-////        }
-//        
-//        // Find the username input text element by its XPATH
-//         usernameElement = driver.findElement(By.xpath(System.getProperty("usernameElementXPath")));
-//        
-//        // Find the password input element by its XPATH
-//         passwordElement = driver.findElement(By.xpath(System.getProperty("passwordElementXPath")));
-//         
+//  }
 //
-//    	 	
-//        try{
-//        	
-//	//		Assert.assertEquals(usernameElement.isEnabled(), true, "The username text field is not displayed");
-//	//		Assert.assertEquals(passwordElement.isEnabled(), true, "The passsword text field is not displayed");
-//			
-//			usernameElement.clear();
-//			Thread.sleep(1000);
-//			usernameElement.sendKeys(System.getProperty("username"));
-//			
-//			passwordElement.clear();
-//			Thread.sleep(1000);
-//			passwordElement.sendKeys(System.getProperty("password"));			
-//			Thread.sleep(5000);
+//  @Test
+//  public void testUntitledTestCase() throws Exception {
+//    driver.get("http://finexp-alb-2137398505.us-east-1.elb.amazonaws.com/#/");
+//    driver.findElement(By.cssSelector("button.btn.btn-default.head-login-btn")).click();
+//    driver.findElement(By.id("login_userId")).click();
+//    driver.findElement(By.id("login_userId")).clear();
+//    driver.findElement(By.id("login_userId")).sendKeys("john.mathew@tavant.com");
+//    driver.findElement(By.id("login_password")).click();
+//    driver.findElement(By.id("login_password")).clear();
+//    driver.findElement(By.id("login_password")).sendKeys("Test123$");
+//    driver.findElement(By.cssSelector("button.btn.btn-primary.submit.auto-prompt.bold-text.go-next")).click();
+//  }
 //
-////	        
-////			String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
-////			String subWindowHandler = null;
-////
-////			Set<String> handles = driver.getWindowHandles(); // get all window handles
-////			Iterator<String> iterator = handles.iterator();
-////			while (iterator.hasNext()){
-////			    subWindowHandler = iterator.next();
-////			}
-////			driver.switchTo().window(subWindowHandler); // switch to popup window
-////
-////			// Now you are in the popup window, perform necessary actions here
-////
-////			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
-////			
-////			
-//			// Find the login button element by its XPATH 
-//	        loginButton = driver.findElement(By.xpath(System.getProperty("loginBtnXPath")));
-//	         
-//	        driver.manage().timeouts().implicitlyWait(1,TimeUnit.MINUTES) ;
-//	         
-//	//        Assert.assertEquals(loginButton.isEnabled(), true, "The login button is not displayed");
-//			
-//			loginButton.click();
-////			
-////			driver.manage().timeouts().implicitlyWait(20,TimeUnit.MINUTES) ;
-//			
-//        	// Find the logout button element by its XPATH 
-//        //    logoutButton = driver.findElement(By.xpath(System.getProperty("loginBtnXPath")));
-//			
-//		}catch(Exception e){
-//			Assert.fail("The login page did not load properly "+e);
-//		}
-//        
-//        
-//   
-//        
-//        
-//        
-//            //Waiting for performing business actions
-//        Thread.sleep(1800000);
-//        
-//        
-//	     	while(true)
-//	     	{    
-//	        //Refreshing the current page
-//	        driver.navigate().refresh();
-//	        
-//	        Thread.sleep(1800000);
-//	        
-//	        
-//	     	}
-//        
+//  @AfterClass(alwaysRun = true)
+//  public void tearDown() throws Exception {
+//    driver.quit();
+//    String verificationErrorString = verificationErrors.toString();
+//    if (!"".equals(verificationErrorString)) {
+//      fail(verificationErrorString);
+//    }
+//  }
 //
-//	 }
-//	 
-//	
-//	 public void logBackIn() throws Exception{
-//	 driver.get(System.getProperty("appURL"));
-//	 login();
-//	 }
+//  private boolean isElementPresent(By by) {
+//    try {
+//      driver.findElement(by);
+//      return true;
+//    } catch (NoSuchElementException e) {
+//      return false;
+//    }
+//  }
 //
+//  private boolean isAlertPresent() {
+//    try {
+//      driver.switchTo().alert();
+//      return true;
+//    } catch (NoAlertPresentException e) {
+//      return false;
+//    }
+//  }
 //
-//	 }
-//
-//
-//
-//
+//  private String closeAlertAndGetItsText() {
+//    try {
+//      Alert alert = driver.switchTo().alert();
+//      String alertText = alert.getText();
+//      if (acceptNextAlert) {
+//        alert.accept();
+//      } else {
+//        alert.dismiss();
+//      }
+//      return alertText;
+//    } finally {
+//      acceptNextAlert = true;
+//    }
+//  }
+//}

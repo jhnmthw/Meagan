@@ -28,6 +28,7 @@ public enum DriverType implements DriverSetup {
         public MutableCapabilities getDesiredCapabilities(Proxy proxySettings) {
             FirefoxOptions firefoxOptions = new FirefoxOptions();
             firefoxOptions.addPreference("marionette", true);
+            firefoxOptions.addPreference("security.fileuri.strict_origin_policy", false);
             return addProxySettings(firefoxOptions, proxySettings);
         }
 
@@ -38,7 +39,7 @@ public enum DriverType implements DriverSetup {
     CHROME {
         public MutableCapabilities getDesiredCapabilities(Proxy proxySettings) {
             DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-            capabilities.setCapability("chrome.switches", Arrays.asList("--no-default-browser-check"));
+            capabilities.setCapability("chrome.switches", Arrays.asList("--no-default-browser-check","--disable-web-security"));
             HashMap<String, String> chromePreferences = new HashMap<String, String>();
             chromePreferences.put("profile.password_manager_enabled", "false");
             capabilities.setCapability("chrome.prefs", chromePreferences);

@@ -51,7 +51,7 @@
 		<phantomjsdriver.version>1.4.3</phantomjsdriver.version>
 		<testng.version>6.11</testng.version>
 		<!--Plugin Versions -->
-		<driver-binary-downloader-maven-plugin.version>1.0.16</driver-binary-downloader-maven-plugin.version>
+		<driver-binary-downloader-maven-plugin.version>1.0.17</driver-binary-downloader-maven-plugin.version>
 		<maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
 		<maven-failsafe-plugin.version>2.20.1</maven-failsafe-plugin.version>
 		<!--Configuration Properties -->
@@ -410,6 +410,23 @@
 						</executions>
 					</plugin>
 					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>buildnumber-maven-plugin</artifactId>
+						<version>1.4</version>
+						<executions>
+							<execution>
+								<phase>pre-site</phase>
+								<goals>
+									<goal>create-timestamp</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<timestampFormat>yyyyMMdd</timestampFormat>
+							<timestampPropertyName>build.date</timestampPropertyName>
+						</configuration>
+					</plugin>
+					<plugin>
 						<groupId>com.lazerycode.jmeter</groupId>
 						<artifactId>jmeter-maven-plugin</artifactId>
 						<version>2.6.0</version>
@@ -507,7 +524,7 @@
 					<!-- </executions> -->
 					<!-- <configuration> -->
 					<!-- <mode>report</mode> -->
-					<!-- <jmeterCsv>C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\20180130-Challengers.csv</jmeterCsv> -->
+					<!-- <jmeterCsv>C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-Challengers.csv</jmeterCsv> -->
 					<!-- </configuration> -->
 					<!-- </plugin> -->
 					<plugin>
@@ -580,14 +597,68 @@
 											<arg value="--tool" />
 											<arg value="Reporter" />
 											<arg value="--generate-csv" />
-											<arg value="test.csv" />
+											<arg value="AggregateReport-${build.date}.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\20180131-Challengers.jtl" />
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-Challengers.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="AggregateReport" />
 										</exec>
-										<move file="${project.basedir}/target/jmeter/lib/test.csv" todir="${project.basedir}/target/jmeter/results"/>
+										<move
+											file="${project.basedir}/target/jmeter/lib/AggregateReport-${build.date}.csv"
+											todir="${project.basedir}/target/jmeter/results" />
+										
+										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
+											<arg value="-jar" />
+											<arg value="cmdrunner-2.0.jar" />
+											<arg value="--tool" />
+											<arg value="Reporter" />
+											<arg value="--generate-csv" />
+											<arg value="SynthesisReport-${build.date}.csv" />
+											<arg value="--input-jtl" />
+											<arg
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-Challengers.jtl" />
+											<arg value="--plugin-type" />
+											<arg value="SynthesisReport" />
+										</exec>
+										<move
+											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}.csv"
+											todir="${project.basedir}/target/jmeter/results" />
+											
+										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
+											<arg value="-jar" />
+											<arg value="cmdrunner-2.0.jar" />
+											<arg value="--tool" />
+											<arg value="Reporter" />
+											<arg value="--generate-csv" />
+											<arg value="SynthesisReport-${build.date}-success.csv" />
+											<arg value="--input-jtl" />
+											<arg
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\success.jtl" />
+											<arg value="--plugin-type" />
+											<arg value="SynthesisReport" />
+										</exec>
+										<move
+											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-success.csv"
+											todir="${project.basedir}/target/jmeter/results" />	
+											
+										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
+											<arg value="-jar" />
+											<arg value="cmdrunner-2.0.jar" />
+											<arg value="--tool" />
+											<arg value="Reporter" />
+											<arg value="--generate-csv" />
+											<arg value="SynthesisReport-${build.date}-errors.csv" />
+											<arg value="--input-jtl" />
+											<arg
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\errors.jtl" />
+											<arg value="--plugin-type" />
+											<arg value="SynthesisReport" />
+										</exec>
+										<move
+											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-errors.csv"
+											todir="${project.basedir}/target/jmeter/results" />	
+												
 										<!-- <java -->
 										<!-- jar="${project.basedir}/target/jmeter/lib/ext/cmdrunner-2.0.jar" -->
 										<!-- fork="true" failonerror="true" maxmemory="128m"> -->
@@ -624,6 +695,7 @@
 						<version>1.0.7-SNAPSHOT</version>
 						<executions>
 							<execution>
+								<id>default-cli</id>
 								<phase>post-integration-test</phase>
 								<goals>
 									<goal>analyze</goal>
@@ -778,6 +850,7 @@
 						<version>1.6.0</version>
 						<executions>
 							<execution>
+								<id>default-cli</id>
 								<phase>post-integration-test</phase>
 								<goals>
 									<goal>java</goal>
