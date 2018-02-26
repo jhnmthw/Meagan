@@ -457,7 +457,7 @@
 							<jmeterVersion>3.3</jmeterVersion>
 							<testFilesIncluded>
 								<jMeterTestFile>${jmxPath}</jMeterTestFile>
-								<jMeterTestFile>Challengers.jmx</jMeterTestFile>
+<!-- 								<jMeterTestFile>Challengers.jmx</jMeterTestFile> -->
 							</testFilesIncluded>
 							<resultsFileFormat>xml</resultsFileFormat>
 							<generateReports>false</generateReports>
