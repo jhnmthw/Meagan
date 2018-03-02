@@ -1,3 +1,20 @@
+#requires -version 4
+<#
+.SYNOPSIS
+  <Overview of script>
+.DESCRIPTION
+  <Brief description of script>
+.NOTES
+  Version:        1.0
+  Author:         John Mathew
+  Creation Date:  <Date>
+  Purpose/Change: Initial script development
+#>
+
+#Set Error Action to Silently Continue
+$ErrorActionPreference = 'SilentlyContinue'
+
+
     Write-Host "___       ___                                                
 `MMb     dMM'                                                
  MMM.   ,PMM                                                 
@@ -14,7 +31,7 @@ _M_      _MM_ YMMMM9  `YMMM9'Yb. YMMMMb. `YMMM9'Yb._MM_  _MM_
                                  YMMMM9                   "
 								 
 
-Write-Host "============================================================================================================================================================================"
+Write-Host "================================================================================================================================================"
 Write-Host "Specify the type of testing: " -ForegroundColor Yellow  -nonewline
 Write-Host "performance" -ForegroundColor Red  -nonewline
 Write-Host " for Performance Testing or " -ForegroundColor Yellow  -nonewline
@@ -40,9 +57,9 @@ mvn -P $testingProfile exec:java
 #mvn post-integration-test com.googlecode.maven-download-plugin:download-maven-plugin:wget@install-cmd-runner
 #mvn antrun:run
 }
-Else {
-Write-Host "============================================================================================================================================================================"
-mvn clean integration-test -P $testingProfile 
+ElseIF ($choice -eq "n"){
+Write-Host "================================================================================================================================================"
+mvn clean integration-test -P $testingProfile
 Write-Host "Reconfiguring JMeter to create Aggregate Report" -ForegroundColor Yellow
 Write-Host "Flushing JMeter lib directory" -ForegroundColor Yellow
 mvn -P $testingProfile antrun:run@flush-jmeter-lib
@@ -50,6 +67,10 @@ mvn -P $testingProfile jmeter:configure -DdownloadDependencies=false
 mvn -P $testingProfile com.lazerycode.jmeter:jmeter-analysis-maven-plugin:analyze
 mvn -P $testingProfile pre-site
 mvn -P $testingProfile exec:java
+}
+Else {
+Write-Host "Wrong entry" -ForegroundColor Yellow
+Write-Host "Try again" -ForegroundColor Red
 }
 }
 					

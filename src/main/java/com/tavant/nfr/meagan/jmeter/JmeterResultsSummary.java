@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.StringReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,10 +15,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
-import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -30,8 +29,10 @@ import javax.xml.xpath.XPathFactory;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.io.FileUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class JmeterResultsSummary {
@@ -179,25 +180,62 @@ public class JmeterResultsSummary {
 
 			Properties p = new Properties();
 			p.load(is);
-			String testFileName = new File(
-					System.getProperty("maven.multiModuleProjectDirectory") + "/src/test/jmeter/").listFiles()[0]
-							.getName().split(".jmx")[0];
+			String testFileName = p.getProperty("jmxPath");
+//			String testFileName = new File(
+//					System.getProperty("maven.multiModuleProjectDirectory") + "/src/test/jmeter/").listFiles()[0]
+//							.getName().split(".jmx")[0];
 			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 
 			DocumentBuilder builder;
 
 			Document xmlDocument;
 			XPath xPath = XPathFactory.newInstance().newXPath();
-			String expression = "//ThreadGroup/@testname | //ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
+	//		String expression = "//ThreadGroup/@testname | //ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
+			String expression = "//ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
 			NodeList matches;
+			
+
 			try {
 
 				builder = builderFactory.newDocumentBuilder();
-				xmlDocument = builder.parse(new File(System.getProperty("maven.multiModuleProjectDirectory")
-						+ "/src/test/jmeter/" + testFileName + ".jmx"));
-				matches = (NodeList) xPath.compile(expression).evaluate(xmlDocument, XPathConstants.NODESET);
+				
 
-				this.setUsers(Integer.parseInt(matches.item(matches.getLength() - 1).getTextContent()));
+//				xmlDocument = builder.parse(new File(System.getProperty("maven.multiModuleProjectDirectory")
+//						+ "/src/test/jmeter/" + testFileName + ".jmx"));
+				
+
+				
+			// Filtering jmx 1.0 xml schema of invalid characters 
+	
+//				xmlDocument = builder.parse(new InputSource(new StringReader(FileUtils.readFileToString(new File(System.getProperty("maven.multiModuleProjectDirectory")
+//						+ "/src/test/jmeter/" + testFileName + ".jmx"), "UTF-8").replaceAll("[^"
+//			                    + "\u0001-\uD7FF"
+//			                    + "\uE000-\uFFFD"
+//			                    + "\ud800\udc00-\udbff\udfff"
+//			                    + "]+",""))));
+
+				xmlDocument = builder.parse(new InputSource(new StringReader(FileUtils
+						.readFileToString(new File(System.getProperty("maven.multiModuleProjectDirectory")
+								+ "/src/test/jmeter/" + testFileName + ".jmx"), "UTF-8")
+						.replaceFirst(
+								"1.0",
+								"1.1"))));
+
+				matches = (NodeList) xPath.compile(expression).evaluate(xmlDocument, XPathConstants.NODESET);
+				
+				int count=0;
+				
+				System.out.println(matches);
+				for(int i=0;i<matches.getLength();i++) {
+					if(matches.item(i).getParentNode().getParentNode().getAttributes().getNamedItem("enabled").getNodeValue().equals("true"))
+					count+=Integer.parseInt(matches.item(i).getTextContent());
+				}
+				
+				this.setUsers(count);
+
+			//	this.setUsers(Integer.parseInt(matches.item(matches.getLength() - 1).getTextContent()));
+				
+			//	this.setUsers(Integer.parseInt(p.getProperty("users")));
 
 			} catch (XPathExpressionException e1) {
 				// TODO Auto-generated catch block
@@ -499,5 +537,7 @@ public class JmeterResultsSummary {
 	public void setRequestsPerSecond(String requestsPerSecond) {
 		this.requestsPerSecond = requestsPerSecond;
 	}
+	
+
 
 }

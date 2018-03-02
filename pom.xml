@@ -407,6 +407,18 @@
 									</files>
 								</configuration>
 							</execution>
+														<execution>
+								<phase>pre-site</phase>
+								<id>reading-properties</id>
+								<goals>
+									<goal>read-project-properties</goal>
+								</goals>
+								<configuration>
+									<files>
+										<file>performance.config.properties</file>
+									</files>
+								</configuration>
+							</execution>
 						</executions>
 					</plugin>
 					<plugin>
@@ -429,7 +441,7 @@
 					<plugin>
 						<groupId>com.lazerycode.jmeter</groupId>
 						<artifactId>jmeter-maven-plugin</artifactId>
-						<version>2.6.0</version>
+						<version>2.7.0</version>
 						<executions>
 							<execution>
 								<phase>integration-test</phase>
@@ -456,8 +468,8 @@
 						<configuration>
 							<jmeterVersion>3.3</jmeterVersion>
 							<testFilesIncluded>
-								<jMeterTestFile>${jmxPath}</jMeterTestFile>
-<!-- 								<jMeterTestFile>Challengers.jmx</jMeterTestFile> -->
+								<jMeterTestFile>${jmxPath}.jmx</jMeterTestFile>
+								<!-- <jMeterTestFile>Challengers.jmx</jMeterTestFile> -->
 							</testFilesIncluded>
 							<resultsFileFormat>xml</resultsFileFormat>
 							<generateReports>false</generateReports>
@@ -508,7 +520,7 @@
 							<!-- <startServersBeforeTests>true</startServersBeforeTests> -->
 							<!-- <stopServersAfterTests>true</stopServersAfterTests> -->
 							<!-- </remoteConfig> -->
-							<guiTestFile>src/test/jmeter/${jmxPath}</guiTestFile>
+							<guiTestFile>src/test/jmeter/${jmxPath}.jmx</guiTestFile>
 						</configuration>
 					</plugin>
 					<!-- <plugin> -->
@@ -600,14 +612,14 @@
 											<arg value="AggregateReport-${build.date}.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-Challengers.jtl" />
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxPath}.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="AggregateReport" />
 										</exec>
 										<move
 											file="${project.basedir}/target/jmeter/lib/AggregateReport-${build.date}.csv"
 											todir="${project.basedir}/target/jmeter/results" />
-										
+
 										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
 											<arg value="cmdrunner-2.0.jar" />
@@ -617,14 +629,14 @@
 											<arg value="SynthesisReport-${build.date}.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-Challengers.jtl" />
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxPath}.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="SynthesisReport" />
 										</exec>
 										<move
 											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}.csv"
 											todir="${project.basedir}/target/jmeter/results" />
-											
+
 										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
 											<arg value="cmdrunner-2.0.jar" />
@@ -640,8 +652,8 @@
 										</exec>
 										<move
 											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-success.csv"
-											todir="${project.basedir}/target/jmeter/results" />	
-											
+											todir="${project.basedir}/target/jmeter/results" />
+
 										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
 											<arg value="cmdrunner-2.0.jar" />
@@ -657,8 +669,8 @@
 										</exec>
 										<move
 											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-errors.csv"
-											todir="${project.basedir}/target/jmeter/results" />	
-												
+											todir="${project.basedir}/target/jmeter/results" />
+
 										<!-- <java -->
 										<!-- jar="${project.basedir}/target/jmeter/lib/ext/cmdrunner-2.0.jar" -->
 										<!-- fork="true" failonerror="true" maxmemory="128m"> -->

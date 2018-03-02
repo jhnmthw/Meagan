@@ -16,7 +16,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
@@ -29,8 +28,6 @@ import org.jxls.common.Context;
 import org.jxls.util.JxlsHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.tavant.nfr.meagan.jmeter.JmeterResultsSummary;
 
 public class ExcelSheetManager {
 
@@ -103,9 +100,6 @@ public class ExcelSheetManager {
 				type + "Summary.minimumResponseTime", type + "Summary.maximumResponseTime", type + "Summary.ninetyPercentLine",
 				type + "Summary.stdDeviation", type + "Summary.error", type + "Summary.transactionsPerSec", type + "Summary.kbPerSecond",
 				type + "Summary.averageBytes" };
-
-		String testFileName = new File(System.getProperty("maven.multiModuleProjectDirectory") + "/src/test/jmeter/")
-				.listFiles()[0].getName().split(".jmx")[0];
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMMdd");
 
