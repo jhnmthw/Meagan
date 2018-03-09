@@ -37,7 +37,6 @@ import org.xml.sax.SAXException;
 
 public class JmeterResultsSummary {
 
-
 	private String[] transactions;
 	private String[] averageResponseTime;
 	private String[] minimumResponseTime;
@@ -51,7 +50,6 @@ public class JmeterResultsSummary {
 	private String[] noOfSamples;
 	private String[] kbPerSecond;
 
-	
 	List<String> samplerLabels;
 	List<String> noOfSamplesList;
 	List<String> averageResponseTimeList;
@@ -63,22 +61,19 @@ public class JmeterResultsSummary {
 	List<String> transactionsPerSecList;
 	List<String> averageBytesList;
 	List<String> kbPerSecondList;
-	
+
 	private int users;
 	private String time;
 	private String duration;
 	private String requests;
 	private String requestsPerSecond;
-	
+
 	DateTimeFormatter formatter;
-	
+
 	FileInputStream is;
 	BufferedReader br;
-	
-	
 
 	public JmeterResultsSummary() {
-
 
 		samplerLabels = new ArrayList<String>();
 		noOfSamplesList = new ArrayList<String>();
@@ -91,24 +86,20 @@ public class JmeterResultsSummary {
 		transactionsPerSecList = new ArrayList<String>();
 		averageBytesList = new ArrayList<String>();
 		kbPerSecondList = new ArrayList<String>();
-		
-		
+
 		formatter = DateTimeFormatter.ofPattern("YYYYMMdd");
 
-
-
 	}
-	
-//	public void getSummaryHeader() {
-//	}
-//	
+
+	// public void getSummaryHeader() {
+	// }
+	//
 	public void getSummary(File csvFile) {
-		
-		 
+
 		CSVParser parser;
 		try {
 			parser = CSVParser.parse(csvFile, Charset.defaultCharset(), CSVFormat.RFC4180);
-			
+
 			for (CSVRecord csvRecord : parser) {
 				samplerLabels.add(csvRecord.get(0));
 				noOfSamplesList.add(csvRecord.get(1));
@@ -122,16 +113,14 @@ public class JmeterResultsSummary {
 				kbPerSecondList.add(csvRecord.get(9));
 				averageBytesList.add(csvRecord.get(10));
 
-
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 
-
-//=================================Removing First and last element from the list================================================			
+		// =================================Removing First and last element from the
+		// list================================================
 		samplerLabels.remove(0);
 		noOfSamplesList.remove(0);
 		averageResponseTimeList.remove(0);
@@ -144,9 +133,9 @@ public class JmeterResultsSummary {
 		averageBytesList.remove(0);
 		kbPerSecondList.remove(0);
 
-//=================================Removing First element from the list================================================	
-				
-				
+		// =================================Removing First element from the
+		// list================================================
+
 		transactions = new String[samplerLabels.size()];
 		noOfSamples = new String[samplerLabels.size()];
 		averageResponseTime = new String[samplerLabels.size()];
@@ -170,10 +159,19 @@ public class JmeterResultsSummary {
 		this.ninetyPercentLine = ninetyPercentLineList.toArray(ninetyPercentLine);
 		this.averageBytes = averageBytesList.toArray(averageBytes);
 		this.kbPerSecond = kbPerSecondList.toArray(kbPerSecond);
+
+		for (int i = 0; i < samplerLabels.size(); i++) { //Converting to Seconds
+			this.averageResponseTime[i] = Double.toString(Double.parseDouble(this.averageResponseTime[i]) / 1000);
+			this.minimumResponseTime[i] = Double.toString(Double.parseDouble(this.minimumResponseTime[i]) / 1000);
+			this.maximumResponseTime[i] = Double.toString(Double.parseDouble(this.maximumResponseTime[i]) / 1000);
+			this.stdDeviation[i] = Double.toString(Double.parseDouble(this.stdDeviation[i]) / 1000);
+			this.ninetyPercentLine[i] = Double.toString(Double.parseDouble(this.ninetyPercentLine[i]) / 1000);
+		}
+
 	}
 
 	public void getSummaryHeaders() {
-		
+
 		try {
 
 			is = new FileInputStream(new File("performance.config.properties"));
@@ -181,61 +179,62 @@ public class JmeterResultsSummary {
 			Properties p = new Properties();
 			p.load(is);
 			String testFileName = p.getProperty("jmxPath");
-//			String testFileName = new File(
-//					System.getProperty("maven.multiModuleProjectDirectory") + "/src/test/jmeter/").listFiles()[0]
-//							.getName().split(".jmx")[0];
+			// String testFileName = new File(
+			// System.getProperty("maven.multiModuleProjectDirectory") +
+			// "/src/test/jmeter/").listFiles()[0]
+			// .getName().split(".jmx")[0];
 			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 
 			DocumentBuilder builder;
 
 			Document xmlDocument;
 			XPath xPath = XPathFactory.newInstance().newXPath();
-	//		String expression = "//ThreadGroup/@testname | //ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
+			// String expression = "//ThreadGroup/@testname |
+			// //ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
 			String expression = "//ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
 			NodeList matches;
-			
 
 			try {
 
 				builder = builderFactory.newDocumentBuilder();
-				
 
-//				xmlDocument = builder.parse(new File(System.getProperty("maven.multiModuleProjectDirectory")
-//						+ "/src/test/jmeter/" + testFileName + ".jmx"));
-				
+				// xmlDocument = builder.parse(new
+				// File(System.getProperty("maven.multiModuleProjectDirectory")
+				// + "/src/test/jmeter/" + testFileName + ".jmx"));
 
-				
-			// Filtering jmx 1.0 xml schema of invalid characters 
-	
-//				xmlDocument = builder.parse(new InputSource(new StringReader(FileUtils.readFileToString(new File(System.getProperty("maven.multiModuleProjectDirectory")
-//						+ "/src/test/jmeter/" + testFileName + ".jmx"), "UTF-8").replaceAll("[^"
-//			                    + "\u0001-\uD7FF"
-//			                    + "\uE000-\uFFFD"
-//			                    + "\ud800\udc00-\udbff\udfff"
-//			                    + "]+",""))));
+				// Filtering jmx 1.0 xml schema of invalid characters
 
-				xmlDocument = builder.parse(new InputSource(new StringReader(FileUtils
-						.readFileToString(new File(System.getProperty("maven.multiModuleProjectDirectory")
-								+ "/src/test/jmeter/" + testFileName + ".jmx"), "UTF-8")
-						.replaceFirst(
-								"1.0",
-								"1.1"))));
+				// xmlDocument = builder.parse(new InputSource(new
+				// StringReader(FileUtils.readFileToString(new
+				// File(System.getProperty("maven.multiModuleProjectDirectory")
+				// + "/src/test/jmeter/" + testFileName + ".jmx"), "UTF-8").replaceAll("[^"
+				// + "\u0001-\uD7FF"
+				// + "\uE000-\uFFFD"
+				// + "\ud800\udc00-\udbff\udfff"
+				// + "]+",""))));
+				
+				xmlDocument = builder
+						.parse(new InputSource(new StringReader(FileUtils
+								.readFileToString(new File(System.getProperty("maven.multiModuleProjectDirectory")
+										+ "/src/test/jmeter/" + testFileName + ".jmx"), "UTF-8")
+								.replaceFirst("1.0", "1.1"))));  // Replacing XML version with 1.1 so that invalid characters do not cause parse exception
 
 				matches = (NodeList) xPath.compile(expression).evaluate(xmlDocument, XPathConstants.NODESET);
-				
-				int count=0;
-				
-				System.out.println(matches);
-				for(int i=0;i<matches.getLength();i++) {
-					if(matches.item(i).getParentNode().getParentNode().getAttributes().getNamedItem("enabled").getNodeValue().equals("true"))
-					count+=Integer.parseInt(matches.item(i).getTextContent());
+
+				int count = 0;
+
+				for (int i = 0; i < matches.getLength(); i++) {
+					if (matches.item(i).getParentNode().getParentNode().getAttributes().getNamedItem("enabled")
+							.getNodeValue().equals("true"))
+						count += Integer.parseInt(matches.item(i).getTextContent());
 				}
-				
+
 				this.setUsers(count);
 
-			//	this.setUsers(Integer.parseInt(matches.item(matches.getLength() - 1).getTextContent()));
-				
-			//	this.setUsers(Integer.parseInt(p.getProperty("users")));
+				// this.setUsers(Integer.parseInt(matches.item(matches.getLength() -
+				// 1).getTextContent()));
+
+				// this.setUsers(Integer.parseInt(p.getProperty("users")));
 
 			} catch (XPathExpressionException e1) {
 				// TODO Auto-generated catch block
@@ -248,8 +247,6 @@ public class JmeterResultsSummary {
 				e3.printStackTrace();
 			}
 
-			
-			
 			String timestamp = Files.readAllLines(Paths.get(System.getProperty("maven.multiModuleProjectDirectory")
 					+ "/target/jmeter/results/" + LocalDate.now().format(formatter) + "-" + testFileName + ".txt"))
 					.get(1);
@@ -287,24 +284,23 @@ public class JmeterResultsSummary {
 							.get(System.getProperty("maven.multiModuleProjectDirectory") + "/target/jmeter/results/"
 									+ LocalDate.now().format(formatter) + "-" + testFileName + ".txt"))
 					.get(4).split("\\s")[6]);
-			
-			
-//			for (int i = 1; i <= samplerLabels.size(); i++) {
-//
-//				this.averageBytes[i
-//						- 1] = Files
-//										.readAllLines(Paths.get(System.getProperty("maven.multiModuleProjectDirectory")
-//												+ "/target/jmeter/results/SynthesisReport-"
-//												+ LocalDate.now().format(formatter) + ".csv"))
-//										.get(i).split(",")[10];
-//				
-//
-//				this.kbPerSecond[i - 1] = Files
-//						.readAllLines(Paths.get(System.getProperty("maven.multiModuleProjectDirectory")
-//								+ "/target/jmeter/results/SynthesisReport-"
-//								+ LocalDate.now().format(formatter) + ".csv"))
-//						.get(i).split(",")[9];
-//			}
+
+			// for (int i = 1; i <= samplerLabels.size(); i++) {
+			//
+			// this.averageBytes[i
+			// - 1] = Files
+			// .readAllLines(Paths.get(System.getProperty("maven.multiModuleProjectDirectory")
+			// + "/target/jmeter/results/SynthesisReport-"
+			// + LocalDate.now().format(formatter) + ".csv"))
+			// .get(i).split(",")[10];
+			//
+			//
+			// this.kbPerSecond[i - 1] = Files
+			// .readAllLines(Paths.get(System.getProperty("maven.multiModuleProjectDirectory")
+			// + "/target/jmeter/results/SynthesisReport-"
+			// + LocalDate.now().format(formatter) + ".csv"))
+			// .get(i).split(",")[9];
+			// }
 
 			// for (int i = 0; i < samplerLabels.size(); i++) {
 			// this.transactions[i] = Files.readAllLines(Paths.get(
@@ -399,7 +395,7 @@ public class JmeterResultsSummary {
 			// this.transactionsPerSec[i-1]*this.averageBytes[i-1]/1024;
 			//
 			// }
-		
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -489,7 +485,6 @@ public class JmeterResultsSummary {
 		this.transactionsPerSec = transactionsPerSec;
 	}
 
-
 	public String[] getKbPerSecond() {
 		return kbPerSecond;
 	}
@@ -537,7 +532,5 @@ public class JmeterResultsSummary {
 	public void setRequestsPerSecond(String requestsPerSecond) {
 		this.requestsPerSecond = requestsPerSecond;
 	}
-	
-
 
 }
