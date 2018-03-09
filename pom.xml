@@ -629,7 +629,7 @@
 											<arg value="--tool" />
 											<arg value="Reporter" />
 											<arg value="--generate-csv" />
-											<arg value="SynthesisReport-${build.date}.csv" />
+											<arg value="SynthesisReport-${build.date}-all.csv" />
 											<arg value="--input-jtl" />
 											<arg
 												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxPath}.jtl" />
@@ -637,7 +637,7 @@
 											<arg value="SynthesisReport" />
 										</exec>
 										<move
-											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}.csv"
+											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-all.csv"
 											todir="${project.basedir}/target/jmeter/results" />
 
 										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
@@ -663,7 +663,7 @@
 											<arg value="--tool" />
 											<arg value="Reporter" />
 											<arg value="--generate-csv" />
-											<arg value="SynthesisReport-${build.date}-errors.csv" />
+											<arg value="SynthesisReport-${build.date}-error.csv" />
 											<arg value="--input-jtl" />
 											<arg
 												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\errors.jtl" />
@@ -671,7 +671,7 @@
 											<arg value="SynthesisReport" />
 										</exec>
 										<move
-											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-errors.csv"
+											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-error.csv"
 											todir="${project.basedir}/target/jmeter/results" />
 
 										<!-- <java -->

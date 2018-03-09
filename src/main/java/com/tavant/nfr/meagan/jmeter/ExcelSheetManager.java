@@ -19,6 +19,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -28,7 +29,6 @@ import org.jxls.common.Context;
 import org.jxls.util.JxlsHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.aspose.cells.CellArea;
 import com.aspose.cells.DataSorter;
 import com.aspose.cells.SortOrder;
@@ -64,9 +64,9 @@ public class ExcelSheetManager {
 		
 		
 		allSummary.getSummary(new File(System.getProperty("maven.multiModuleProjectDirectory")
-				+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(allSummary.formatter) + ".csv"));
+				+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(allSummary.formatter) + "-all.csv"));
 		errorSummary.getSummary(new File(System.getProperty("maven.multiModuleProjectDirectory")
-				+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(errorSummary.formatter) + "-errors.csv"));
+				+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(errorSummary.formatter) + "-error.csv"));
 		
 		List<JmeterResultsSummary> summarys1 = new ArrayList<JmeterResultsSummary>();
 		List<JmeterResultsSummary> summarys2 = new ArrayList<JmeterResultsSummary>();
@@ -124,7 +124,7 @@ public class ExcelSheetManager {
 		//Specify the start column index.
 		ca1.StartColumn = 1;
 		//Specify the last row index.
-		ca1.EndRow = successSummary.samplerLabels.size()+1;
+		ca1.EndRow = successSummary.samplerLabels.size() + ca1.StartRow;
 		//Specify the last column index.
 		ca1.EndColumn = 11;
 		 
@@ -136,7 +136,7 @@ public class ExcelSheetManager {
 		//Specify the start column index.
 		ca2.StartColumn = 1;
 		//Specify the last row index.
-		ca2.EndRow = allSummary.samplerLabels.size();
+		ca2.EndRow = allSummary.samplerLabels.size() + ca2.StartRow;
 		//Specify the last column index.
 		ca2.EndColumn = 11;
 
@@ -148,7 +148,7 @@ public class ExcelSheetManager {
 		//Specify the start column index.
 		ca3.StartColumn = 1;
 		//Specify the last row index.
-		ca3.EndRow = errorSummary.samplerLabels.size()+1;
+		ca3.EndRow = errorSummary.samplerLabels.size() + ca3.StartRow;
 		//Specify the last column index.
 		ca3.EndColumn = 11;
 		
@@ -194,14 +194,16 @@ public class ExcelSheetManager {
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMMdd");
 
-		int noOfTransactions = Files.readAllLines(Paths.get(
-				System.getProperty("maven.multiModuleProjectDirectory") + "/target/jmeter/results/AggregateReport-"
-						+ LocalDate.now().format(formatter) + ".csv"))
-				.size() - 2;
 
-		for (int currentRow = 0; currentRow < noOfTransactions; currentRow++) {
+		
+		CellStyle cs = sheet.getRow(findRow(sheet, "Label")+1).getCell(1).getCellStyle();
+		
+		DataFormat df = workbook.createDataFormat(); 
+		
+		for (int currentRow = 0; currentRow < Files.readAllLines(Paths.get(System.getProperty("maven.multiModuleProjectDirectory")
+				+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(formatter) + "-" + type + ".csv")).size()-2; currentRow++) {
 			Row row = sheet.createRow(++rowCount);
-			writePlaceholderArrayToRows(placeholderArray, row, currentRow);
+			writePlaceholderArrayToRows(placeholderArray, row, currentRow, cs, df);
 		}
 		
 		if(type.equals("success")) {
@@ -210,7 +212,9 @@ public class ExcelSheetManager {
 		
 
 			String[] placeholders = { type + "Summary.users", type + "Summary.time", type + "Summary.duration", type + "Summary.requests", type + "Summary.requestsPerSecond"};
-		for (int currentRow = 0; currentRow < placeholders.length; currentRow++) {
+		
+			
+			for (int currentRow = 0; currentRow < placeholders.length; currentRow++) {
 			Row row = sheet.getRow(++rowCount);
 			writePlaceholderToRows(placeholders[currentRow], row);
 		}
@@ -247,15 +251,22 @@ public class ExcelSheetManager {
 		return 0;
 	}
 
-	private static void writePlaceholderArrayToRows(String[] placeholders, Row row, int placehodlerIndex) {
+	private static void writePlaceholderArrayToRows(String[] placeholders, Row row, int placehodlerIndex, CellStyle cs, DataFormat df) {
 
-		Cell cell;
-
+		Cell cell;		
+		
+		
 		for (int i = 1; i <= placeholders.length; i++) {
 			cell = row.createCell(i);
-			cell.setCellValue("${" + placeholders[i - 1] + "[" + placehodlerIndex + "]}");
-		}
+			
+			if(i!=1)
+				cs.setDataFormat(df.getFormat("#,##0.0000"));;
 
+			cell.setCellValue("${" + placeholders[i - 1] + "[" + placehodlerIndex + "]}");
+			
+			cell.setCellStyle(cs);
+		}
+		
 	}
 	
 	private static void writePlaceholderToRows(String placeholder, Row row) {
@@ -266,8 +277,6 @@ public class ExcelSheetManager {
 			cell = row.createCell(2);
 			CellStyle cs = row.getCell(1).getCellStyle();
 			cs.setAlignment(HorizontalAlignment.RIGHT);
-			//BorderStyle bs = BorderStyle.MEDIUM;
-			//cs.setBorderBottom(bs);
 			cell.setCellStyle(cs);
 			cell.setCellValue("${" + placeholder + "}");
 		
