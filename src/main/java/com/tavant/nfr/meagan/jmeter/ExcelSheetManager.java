@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
@@ -12,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -68,6 +70,27 @@ public class ExcelSheetManager {
 		errorSummary.getSummary(new File(System.getProperty("maven.multiModuleProjectDirectory")
 				+ "/target/jmeter/results/SynthesisReport-" + LocalDate.now().format(errorSummary.formatter) + "-error.csv"));
 		
+//		Records[] r1 = new Records[allSummary.getTransactions().length];
+//		Records[] r2 = new Records[successSummary.getTransactions().length];
+//		Records[] r3 = new Records[errorSummary.getTransactions().length];
+		
+		Records r = new Records();
+		
+		
+		Records[] r1 = setRecords(allSummary);
+		Records[] r2 = setRecords(successSummary);;
+		Records[] r3 = setRecords(errorSummary);
+		
+
+		Arrays.sort(r1, new RecordsComaparator());
+		Arrays.sort(r2, new RecordsComaparator());
+		Arrays.sort(r3, new RecordsComaparator());
+		
+		setSortedRecordsToObjects(r1, allSummary);
+		setSortedRecordsToObjects(r2, successSummary);
+		setSortedRecordsToObjects(r3, errorSummary);
+		
+		
 		List<JmeterResultsSummary> summarys1 = new ArrayList<JmeterResultsSummary>();
 		List<JmeterResultsSummary> summarys2 = new ArrayList<JmeterResultsSummary>();
 		List<JmeterResultsSummary> summarys3 = new ArrayList<JmeterResultsSummary>();
@@ -96,72 +119,157 @@ public class ExcelSheetManager {
 		
 		
 
-		
-		com.aspose.cells.Workbook reportWorkbook = new com.aspose.cells.Workbook(reportPath);
-		
-		//Obtain the DataSorter object in the workbook
-		DataSorter sorter = reportWorkbook.getDataSorter();
-		 
-		//Set the first order
-		sorter.setOrder1(SortOrder.ASCENDING);
-		 
-		//Define the first key.
-		sorter.setKey1(0);
-		 
-		//Set the second order
-		sorter.setOrder2(SortOrder.ASCENDING);
-		 
-		//Define the second key
-		sorter.setKey2(1);
-		 
-		//Create a cells area (range).
-		CellArea ca1 = new CellArea();
-		CellArea ca2 = new CellArea();
-		CellArea ca3 = new CellArea();
-		 
-		//Specify the start row index.
-		ca1.StartRow = 12;
-		//Specify the start column index.
-		ca1.StartColumn = 1;
-		//Specify the last row index.
-		ca1.EndRow = successSummary.samplerLabels.size() + ca1.StartRow;
-		//Specify the last column index.
-		ca1.EndColumn = 11;
-		 
-		//Sort data in the specified data range (A2:C10)
-		sorter.sort(reportWorkbook.getWorksheets().get(0).getCells(), ca1);
-		
-		//Specify the start row index.
-		ca2.StartRow = 3;
-		//Specify the start column index.
-		ca2.StartColumn = 1;
-		//Specify the last row index.
-		ca2.EndRow = allSummary.samplerLabels.size() + ca2.StartRow;
-		//Specify the last column index.
-		ca2.EndColumn = 11;
+//		
+//		com.aspose.cells.Workbook reportWorkbook = new com.aspose.cells.Workbook(reportPath);
+//		
+//		//Obtain the DataSorter object in the workbook
+//		DataSorter sorter = reportWorkbook.getDataSorter();
+//		 
+//		//Set the first order
+//		sorter.setOrder1(SortOrder.ASCENDING);
+//		 
+//		//Define the first key.
+//		sorter.setKey1(0);
+//		 
+//		//Set the second order
+//		sorter.setOrder2(SortOrder.ASCENDING);
+//		 
+//		//Define the second key
+//		sorter.setKey2(1);
+//		 
+//		//Create a cells area (range).
+//		CellArea ca1 = new CellArea();
+//		CellArea ca2 = new CellArea();
+//		CellArea ca3 = new CellArea();
+//		 
+//		//Specify the start row index.
+//		ca1.StartRow = 12;
+//		//Specify the start column index.
+//		ca1.StartColumn = 1;
+//		//Specify the last row index.
+//		ca1.EndRow = successSummary.samplerLabels.size() + ca1.StartRow;
+//		//Specify the last column index.
+//		ca1.EndColumn = 11;
+//		 
+//		//Sort data in the specified data range (A2:C10)
+//		sorter.sort(reportWorkbook.getWorksheets().get(0).getCells(), ca1);
+//		
+//		//Specify the start row index.
+//		ca2.StartRow = 3;
+//		//Specify the start column index.
+//		ca2.StartColumn = 1;
+//		//Specify the last row index.
+//		ca2.EndRow = allSummary.samplerLabels.size() + ca2.StartRow;
+//		//Specify the last column index.
+//		ca2.EndColumn = 11;
+//
+//		
+//		sorter.sort(reportWorkbook.getWorksheets().get(1).getCells(), ca2);
+//		
+//		//Specify the start row index.
+//		ca3.StartRow = 6;
+//		//Specify the start column index.
+//		ca3.StartColumn = 1;
+//		//Specify the last row index.
+//		ca3.EndRow = errorSummary.samplerLabels.size() + ca3.StartRow;
+//		//Specify the last column index.
+//		ca3.EndColumn = 11;
+//		
+//		sorter.sort(reportWorkbook.getWorksheets().get(3).getCells(), ca3);
+//
+//        //Save the excel file.
+//		try {
+//			reportWorkbook.save(reportPath);
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
+	}
+	
+	
+	private static Records[] setRecords(JmeterResultsSummary jrs) {
 		
-		sorter.sort(reportWorkbook.getWorksheets().get(1).getCells(), ca2);
+		Records[] r = new Records[jrs.samplerLabels.size()];
 		
-		//Specify the start row index.
-		ca3.StartRow = 6;
-		//Specify the start column index.
-		ca3.StartColumn = 1;
-		//Specify the last row index.
-		ca3.EndRow = errorSummary.samplerLabels.size() + ca3.StartRow;
-		//Specify the last column index.
-		ca3.EndColumn = 11;
-		
-		sorter.sort(reportWorkbook.getWorksheets().get(3).getCells(), ca3);
-
-        //Save the excel file.
-		try {
-			reportWorkbook.save(reportPath);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		for(int i=0;i<r.length;i++) {
+			r[i] = new Records();
 		}
+		
+		String[] transactions = jrs.getTransactions();
+		String[] noOfSamples = jrs.getnoOfSamples();
+		String[] averageResponseTime = jrs.getAverageResponseTime();
+		String[] error = jrs.getError();
+		String[] minimumResponseTime = jrs.getMinimumResponseTime();
+		String[] maximumResponseTime = jrs.getMaximumResponseTime();
+		String[] stdDeviation = jrs.getStdDeviation();
+		String[] averageBytes = jrs.getAverageBytes();
+		String[] transactionsPerSec = jrs.getTransactionsPerSec();
+		String[] kbPerSecond = jrs.getKbPerSecond();
+		String[] ninetyPercentLine = jrs.getNinetyPercentLine();
+		
+		for(int i=0;i<r.length;i++) {
+			
+			r[i].setTransaction(transactions[i]);
+			r[i].setNoOfSamples(Integer.parseInt(noOfSamples[i]));
+			r[i].setAverageResponseTime(Double.parseDouble(averageResponseTime[i]));
+			r[i].setMinimumResponseTime(Double.parseDouble(minimumResponseTime[i]));
+			r[i].setMaximumResponseTime(Double.parseDouble(maximumResponseTime[i]));
+			r[i].setNinetyPercentLine(Double.parseDouble(ninetyPercentLine[i]));
+			r[i].setStdDeviation(Double.parseDouble(stdDeviation[i]));
+			r[i].setError(Double.parseDouble(error[i].split("%")[0]));
+			r[i].setTransactionsPerSec(Double.parseDouble(transactionsPerSec[i]));
+			r[i].setAverageBytes(Double.parseDouble(averageBytes[i]));
+			r[i].setKbPerSecond(Double.parseDouble(kbPerSecond[i]));
+			
+		}
+		
+		return r;
+	}
+	
+	private static void setSortedRecordsToObjects(Records[] r, JmeterResultsSummary jrs) {
+		
+		String[] transactions = new String[jrs.samplerLabels.size()];
+		String[] noOfSamples = new String[jrs.samplerLabels.size()];
+		String[] averageResponseTime = new String[jrs.samplerLabels.size()];
+		String[] error = new String[jrs.samplerLabels.size()];
+		String[] minimumResponseTime = new String[jrs.samplerLabels.size()];
+		String[] maximumResponseTime = new String[jrs.samplerLabels.size()];
+		String[] stdDeviation = new String[jrs.samplerLabels.size()];
+		String[] averageBytes = new String[jrs.samplerLabels.size()];
+		String[] transactionsPerSec = new String[jrs.samplerLabels.size()];
+		String[] kbPerSecond = new String[jrs.samplerLabels.size()];
+		String[] ninetyPercentLine = new String[jrs.samplerLabels.size()];
 
+		for(int i=0;i<r.length;i++) {
+			
+			transactions[i] = r[i].getTransaction();
+			noOfSamples[i] = String.valueOf(r[i].getNoOfSamples());
+			averageResponseTime[i] = String.valueOf(r[i].getAverageResponseTime());
+			error[i] = String.valueOf(r[i].getError());
+			minimumResponseTime[i] = String.valueOf(r[i].getMinimumResponseTime());
+			maximumResponseTime[i] = String.valueOf(r[i].getMaximumResponseTime());
+			stdDeviation[i] = String.valueOf(r[i].getStdDeviation());
+			averageBytes[i] = String.valueOf(r[i].getAverageBytes());
+			transactionsPerSec[i] = String.valueOf(r[i].getTransactionsPerSec());
+			kbPerSecond[i] = String.valueOf(r[i].getKbPerSecond());
+			ninetyPercentLine[i] = String.valueOf(r[i].getNinetyPercentLine());
+			
+			}
+		
+		jrs.setTransactions(transactions);
+		jrs.setNoOfSamples(noOfSamples);
+		jrs.setAverageResponseTime(averageResponseTime);
+		jrs.setMinimumResponseTime(minimumResponseTime);
+		jrs.setMaximumResponseTime(maximumResponseTime);
+		jrs.setNinetyPercentLine(ninetyPercentLine);
+		jrs.setStdDeviation(stdDeviation);
+		jrs.setError(error);
+		jrs.setTransactionsPerSec(transactionsPerSec);
+		jrs.setAverageBytes(averageBytes);
+		jrs.setKbPerSecond(kbPerSecond);
+		
+		
 	}
 	
 	private static void createReport(List<JmeterResultsSummary> summarys1,List<JmeterResultsSummary> summarys2,List<JmeterResultsSummary> summarys3) throws FileNotFoundException, IOException{
@@ -172,7 +280,6 @@ public class ExcelSheetManager {
 				context.putVar("summarys1", summarys1);
 				context.putVar("summarys2", summarys2);
 				context.putVar("summarys3", summarys3);
-		//		context.putVar("tList", tList);
 				
 				JxlsHelper.getInstance().processTemplate(is, os, context);
 
@@ -191,6 +298,7 @@ public class ExcelSheetManager {
 				type + "Summary.minimumResponseTime", type + "Summary.maximumResponseTime", type + "Summary.ninetyPercentLine",
 				type + "Summary.stdDeviation", type + "Summary.error", type + "Summary.transactionsPerSec", type + "Summary.kbPerSecond",
 				type + "Summary.averageBytes" };
+		
 
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYYMMdd");
 

@@ -41,13 +41,13 @@
 			<comments>A business-friendly OSS license</comments>
 		</license>
 	</licenses>
-		<repositories>
-    <repository>
-        <id>AsposeJavaAPI</id>
-        <name>Aspose Java API</name>
-        <url>http://maven.aspose.com/repository/simple/ext-release-local/</url>
-    </repository>
-</repositories>
+<!-- 		<repositories> -->
+<!--     <repository> -->
+<!--         <id>AsposeJavaAPI</id> -->
+<!--         <name>Aspose Java API</name> -->
+<!--         <url>http://maven.aspose.com/repository/simple/ext-release-local/</url> -->
+<!--     </repository> -->
+<!-- </repositories> -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -188,11 +188,11 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.aspose/aspose-cells -->
-    <dependency>
-        <groupId>com.aspose</groupId>
-        <artifactId>aspose-cells</artifactId>
-        <version>9.0.0</version>
-    </dependency>
+<!--     <dependency> -->
+<!--         <groupId>com.aspose</groupId> -->
+<!--         <artifactId>aspose-cells</artifactId> -->
+<!--         <version>9.0.0</version> -->
+<!--     </dependency> -->
 	</dependencies>
 
 	<profiles>

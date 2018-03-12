@@ -133,7 +133,7 @@ public class JmeterResultsSummary {
 		averageBytesList.remove(0);
 		kbPerSecondList.remove(0);
 
-		// =================================Removing First element from the
+		// =================================Removing Last element from the
 		// list================================================
 
 		transactions = new String[samplerLabels.size()];
@@ -409,7 +409,7 @@ public class JmeterResultsSummary {
 		return noOfSamples;
 	}
 
-	public void setnoOfSamples(String[] noOfSamples) {
+	public void setNoOfSamples(String[] noOfSamples) {
 		this.noOfSamples = noOfSamples;
 	}
 
