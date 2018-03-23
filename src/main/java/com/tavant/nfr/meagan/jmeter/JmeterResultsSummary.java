@@ -91,9 +91,7 @@ public class JmeterResultsSummary {
 
 	}
 
-	// public void getSummaryHeader() {
-	// }
-	//
+
 	public void getSummary(File csvFile) {
 
 		CSVParser parser;
@@ -179,18 +177,13 @@ public class JmeterResultsSummary {
 			Properties p = new Properties();
 			p.load(is);
 			String testFileName = p.getProperty("jmxPath");
-			// String testFileName = new File(
-			// System.getProperty("maven.multiModuleProjectDirectory") +
-			// "/src/test/jmeter/").listFiles()[0]
-			// .getName().split(".jmx")[0];
+
 			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 
 			DocumentBuilder builder;
 
 			Document xmlDocument;
 			XPath xPath = XPathFactory.newInstance().newXPath();
-			// String expression = "//ThreadGroup/@testname |
-			// //ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
 			String expression = "//ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
 			NodeList matches;
 
@@ -198,21 +191,6 @@ public class JmeterResultsSummary {
 
 				builder = builderFactory.newDocumentBuilder();
 
-				// xmlDocument = builder.parse(new
-				// File(System.getProperty("maven.multiModuleProjectDirectory")
-				// + "/src/test/jmeter/" + testFileName + ".jmx"));
-
-				// Filtering jmx 1.0 xml schema of invalid characters
-
-				// xmlDocument = builder.parse(new InputSource(new
-				// StringReader(FileUtils.readFileToString(new
-				// File(System.getProperty("maven.multiModuleProjectDirectory")
-				// + "/src/test/jmeter/" + testFileName + ".jmx"), "UTF-8").replaceAll("[^"
-				// + "\u0001-\uD7FF"
-				// + "\uE000-\uFFFD"
-				// + "\ud800\udc00-\udbff\udfff"
-				// + "]+",""))));
-				
 				xmlDocument = builder
 						.parse(new InputSource(new StringReader(FileUtils
 								.readFileToString(new File(System.getProperty("maven.multiModuleProjectDirectory")
@@ -231,10 +209,7 @@ public class JmeterResultsSummary {
 
 				this.setUsers(count);
 
-				// this.setUsers(Integer.parseInt(matches.item(matches.getLength() -
-				// 1).getTextContent()));
 
-				// this.setUsers(Integer.parseInt(p.getProperty("users")));
 
 			} catch (XPathExpressionException e1) {
 				// TODO Auto-generated catch block
@@ -256,10 +231,6 @@ public class JmeterResultsSummary {
 
 			String[] parts = timestamp.split("\\s");
 
-			// int noOfTransactions = Files.readAllLines(Paths
-			// .get(System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .size()-1;
 
 			try {
 				startDate = df.parse(parts[3].split("\\+")[0]);
@@ -285,116 +256,7 @@ public class JmeterResultsSummary {
 									+ LocalDate.now().format(formatter) + "-" + testFileName + ".txt"))
 					.get(4).split("\\s")[6]);
 
-			// for (int i = 1; i <= samplerLabels.size(); i++) {
-			//
-			// this.averageBytes[i
-			// - 1] = Files
-			// .readAllLines(Paths.get(System.getProperty("maven.multiModuleProjectDirectory")
-			// + "/target/jmeter/results/SynthesisReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split(",")[10];
-			//
-			//
-			// this.kbPerSecond[i - 1] = Files
-			// .readAllLines(Paths.get(System.getProperty("maven.multiModuleProjectDirectory")
-			// + "/target/jmeter/results/SynthesisReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split(",")[9];
-			// }
 
-			// for (int i = 0; i < samplerLabels.size(); i++) {
-			// this.transactions[i] = Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[0].replaceAll("^\"|\"$", "");
-			// this.noOfSamples[i - 1] = Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[1];
-			// this.averageResponseTime[i - 1] =
-			// Float.parseFloat(Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[2])/1000;
-			// this.error[i - 1] = Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[9];
-			// this.minimumResponseTime[i - 1] =
-			// Float.parseFloat(Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[7])/1000;
-			// this.maximumResponseTime[i - 1] =
-			// Float.parseFloat(Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[8])/1000;
-			// this.stdDeviation[i - 1] = Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[12];
-			// this.averageBytes[i - 1] = Double.parseDouble(Files.readAllLines(Paths
-			// .get(System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[11]);
-			// this.transactionsPerSec[i-1] = Double.parseDouble(Files.readAllLines(Paths
-			// .get(System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[10]);
-			// this.kbPerSecond[i-1] =
-			// this.transactionsPerSec[i-1]*this.averageBytes[i-1]/1024;
-			// this.ninetyPercentLine[i-1] = Double.parseDouble(Files.readAllLines(Paths
-			// .get(System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/AggregateReport-"
-			// + LocalDate.now().format(formatter) + ".csv"))
-			// .get(i).split("\\,")[4]);
-			//
-			// }
-
-			// for (int i = 1; i <= noOfTransactions; i++) {
-			// this.transactions[i - 1] = Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[0].replaceAll("^\"|\"$", "");
-			// this.samples[i - 1] = Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[1];
-			// this.averageResponseTime[i - 1] =
-			// Float.parseFloat(Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[4])/1000;
-			// this.error[i - 1] = Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[9];
-			// this.minimumResponseTime[i - 1] =
-			// Float.parseFloat(Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[3])/1000;
-			// this.maximumResponseTime[i - 1] =
-			// Float.parseFloat(Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[5])/1000;
-			// this.stdDeviation[i - 1] = Files.readAllLines(Paths.get(
-			// System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[6];
-			// this.averageBytes[i - 1] = Double.parseDouble(Files.readAllLines(Paths
-			// .get(System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-sizes-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[4]);
-			// this.transactionsPerSec[i-1] = Double.parseDouble(Files.readAllLines(Paths
-			// .get(System.getProperty("maven.multiModuleProjectDirectory")+"/target/jmeter/results/default-durations-"
-			// + LocalDate.now().format(formatter) + "-"+testFileName+".csv"))
-			// .get(i).split("\\;")[7]);
-			// this.kbPerSecond[i-1] =
-			// this.transactionsPerSec[i-1]*this.averageBytes[i-1]/1024;
-			//
-			// }
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -532,5 +394,5 @@ public class JmeterResultsSummary {
 	public void setRequestsPerSecond(String requestsPerSecond) {
 		this.requestsPerSecond = requestsPerSecond;
 	}
-
+	
 }
