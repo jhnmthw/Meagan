@@ -859,30 +859,54 @@
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.6.0</version>
-						<executions>
-							<execution>
-								<id>default-cli</id>
-								<phase>post-integration-test</phase>
-								<goals>
-									<goal>java</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<mainClass>com.tavant.nfr.meagan.jmeter.ExcelSheetManager</mainClass>
-							<executable>maven</executable>
-							<!-- optional -->
-							<workingDirectory>${project.build.directory}</workingDirectory>
-							<arguments>
-								<argument>-X</argument>
-								<argument>verify</argument>
-							</arguments>
-						</configuration>
-					</plugin>
+					    <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <executions>
+            <execution>
+                <id>default-cli</id>
+                <phase>post-integration-test</phase>
+                <goals>
+                    <goal>java</goal>
+                </goals>
+                <configuration>
+<!--                     <executable>java</executable> -->
+                    <mainClass>com.tavant.nfr.meagan.jmeter.ExcelSheetManager</mainClass>
+                    <!-- optional -->
+                    <workingDirectory>${project.build.directory}</workingDirectory>
+                    <arguments>
+                        <argument>-jar</argument>
+                        <argument>${project.basedir}/src/test/resources/meagan-report-generator-0.0.1-SNAPSHOT.jar</argument>
+                    </arguments>
+                </configuration>                        
+            </execution>
+        </executions>
+    </plugin> 
+<!-- 					<plugin> -->
+<!-- 						<groupId>org.codehaus.mojo</groupId> -->
+<!-- 						<artifactId>exec-maven-plugin</artifactId> -->
+<!-- 						<version>1.6.0</version> -->
+<!-- 						<executions> -->
+<!-- 							<execution> -->
+<!-- 								<id>default-cli</id> -->
+<!-- 								<phase>post-integration-test</phase> -->
+<!-- 								<goals> -->
+<!-- 									<goal>java</goal> -->
+<!-- 								</goals> -->
+<!-- 							</execution> -->
+<!-- 						</executions> -->
+<!-- 						<configuration> -->
+<!-- 							<mainClass>com.tavant.nfr.meagan.jmeter.ExcelSheetManager</mainClass> -->
+<!-- 							<executable>maven</executable> -->
+<!-- 							optional -->
+<!-- 							<workingDirectory>${project.build.directory}</workingDirectory> -->
+<!-- 							<arguments> -->
+<!-- 								<argument>-X</argument> -->
+<!-- 								<argument>verify</argument> -->
+<!-- 							</arguments> -->
+<!-- 						</configuration> -->
+<!-- 					</plugin> -->
 				</plugins>
 			</build>
 		</profile>
