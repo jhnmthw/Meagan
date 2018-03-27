@@ -41,13 +41,6 @@
 			<comments>A business-friendly OSS license</comments>
 		</license>
 	</licenses>
-<!-- 		<repositories> -->
-<!--     <repository> -->
-<!--         <id>AsposeJavaAPI</id> -->
-<!--         <name>Aspose Java API</name> -->
-<!--         <url>http://maven.aspose.com/repository/simple/ext-release-local/</url> -->
-<!--     </repository> -->
-<!-- </repositories> -->
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -140,27 +133,6 @@
 			<version>${selenium.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.jxls</groupId>
-			<artifactId>jxls</artifactId>
-			<version>2.4.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jxls</groupId>
-			<artifactId>jxls-poi</artifactId>
-			<version>1.0.14</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jxls</groupId>
-			<artifactId>jxls-reader</artifactId>
-			<version>2.0.3</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.apache.poi</groupId> -->
-		<!-- <artifactId>poi</artifactId> -->
-		<!-- <version>3.17</version> -->
-		<!-- </dependency> -->
-		<dependency>
 			<groupId>org.codehaus.mojo</groupId>
 			<artifactId>exec-maven-plugin</artifactId>
 			<version>1.6.0</version>
@@ -187,12 +159,6 @@
 			<version>1.6.6</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.aspose/aspose-cells -->
-<!--     <dependency> -->
-<!--         <groupId>com.aspose</groupId> -->
-<!--         <artifactId>aspose-cells</artifactId> -->
-<!--         <version>9.0.0</version> -->
-<!--     </dependency> -->
 	</dependencies>
 
 	<profiles>
@@ -383,6 +349,13 @@
 			<id>performance</id>
 			<activation>
 			</activation>
+			<dependencies>
+  <dependency>
+	<groupId>com.tavant.nfr.meagan</groupId>
+	<artifactId>meagan-report-generator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+  </dependency>
+</dependencies>
 			<build>
 				<plugins>
 					<plugin>
@@ -526,22 +499,6 @@
 							<guiTestFile>src/test/jmeter/${jmxPath}.jmx</guiTestFile>
 						</configuration>
 					</plugin>
-					<!-- <plugin> -->
-					<!-- <groupId>uk.co.deliverymind</groupId> -->
-					<!-- <artifactId>jmeter-lightning-maven-plugin</artifactId> -->
-					<!-- <version>1.4.0</version> -->
-					<!-- <executions> -->
-					<!-- <execution> -->
-					<!-- <goals> -->
-					<!-- <goal>lightning</goal> -->
-					<!-- </goals> -->
-					<!-- </execution> -->
-					<!-- </executions> -->
-					<!-- <configuration> -->
-					<!-- <mode>report</mode> -->
-					<!-- <jmeterCsv>C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-Challengers.csv</jmeterCsv> -->
-					<!-- </configuration> -->
-					<!-- </plugin> -->
 					<plugin>
 						<groupId>com.googlecode.maven-download-plugin</groupId>
 						<artifactId>download-maven-plugin</artifactId>
@@ -563,31 +520,6 @@
 							</execution>
 						</executions>
 					</plugin>
-					<!-- <plugin> -->
-					<!-- <groupId>org.jhnmthw</groupId> -->
-					<!-- <artifactId>aggregate-report-maven-plugin</artifactId> -->
-					<!-- <version>0.0.1-SNAPSHOT</version> -->
-					<!-- <executions> -->
-					<!-- <execution> -->
-					<!-- <goals> -->
-					<!-- <goal>create-aggregate-report</goal> -->
-					<!-- </goals> -->
-					<!-- <phase>post-integration-test</phase> -->
-					<!-- <configuration> -->
-					<!-- <inputFile>${project.build.directory}/jmeter/results/20180123-Challengers.jtl</inputFile> -->
-					<!-- <graphs> -->
-					<!-- <graph> -->
-					<!-- <pluginType>ThreadsStateOverTime</pluginType> -->
-					<!-- <width>800</width> -->
-					<!-- <height>600</height> -->
-					<!-- <outputFile>${project.build.directory}/jmeter/results/SimpleWebservicePerformanceTest-ThreadsStateOverTime.png</outputFile> -->
-					<!-- </graph> -->
-					<!-- ... you can declare more <graph>-elements here -->
-					<!-- </graphs> -->
-					<!-- </configuration> -->
-					<!-- </execution> -->
-					<!-- </executions> -->
-					<!-- </plugin> -->
 					<plugin>
 						<artifactId>maven-antrun-plugin</artifactId>
 						<version>1.8</version>
@@ -600,12 +532,6 @@
 										<copy
 											file="${project.basedir}/src/test/resources/template/Jmeter_Reporting_Template.xlsx"
 											tofile="${project.basedir}/target/jmeter/Jmeter_Reporting_Template.xlsx" />
-										<!-- <copy todir="${project.basedir}/target/jmeter/" -->
-										<!-- overwrite="true"> -->
-										<!-- <fileset -->
-										<!-- dir="${project.basedir}/target/jmeter/apache-jmeter-3.3/" -->
-										<!-- includes="**" /> -->
-										<!-- </copy> -->
 										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
 											<arg value="cmdrunner-2.0.jar" />
@@ -673,19 +599,6 @@
 										<move
 											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-error.csv"
 											todir="${project.basedir}/target/jmeter/results" />
-
-										<!-- <java -->
-										<!-- jar="${project.basedir}/target/jmeter/lib/ext/cmdrunner-2.0.jar" -->
-										<!-- fork="true" failonerror="true" maxmemory="128m"> -->
-										<!-- <arg value="tool"/> -->
-										<!-- <arg value="Reporter"/> -->
-										<!-- <arg value="generate-csv"/> -->
-										<!-- <arg value="Aggregate_${build.date}.csv"/> -->
-										<!-- <arg value="input-jtl"/> -->
-										<!-- <arg value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\20180105-Challengers.jtl"/> -->
-										<!-- <arg value="plugin-type"/> -->
-										<!-- <arg value="AggregateReport"/> -->
-										<!-- </java> -->
 									</target>
 								</configuration>
 								<goals>
@@ -871,9 +784,7 @@
                     <goal>java</goal>
                 </goals>
                 <configuration>
-<!--                     <executable>java</executable> -->
                     <mainClass>com.tavant.nfr.meagan.jmeter.ExcelSheetManager</mainClass>
-                    <!-- optional -->
                     <workingDirectory>${project.build.directory}</workingDirectory>
                     <arguments>
                         <argument>-jar</argument>
