@@ -1,4 +1,4 @@
-package com.tavant.nfr.meagan.selenium.config;
+package com.pheonix.nfr.meagan.selenium.config;
 
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.Platform;
@@ -10,8 +10,8 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static com.tavant.nfr.meagan.selenium.config.DriverType.CHROME_HEADLESS;
-import static com.tavant.nfr.meagan.selenium.config.DriverType.valueOf;
+import static com.pheonix.nfr.meagan.selenium.config.DriverType.CHROME_HEADLESS;
+import static com.pheonix.nfr.meagan.selenium.config.DriverType.valueOf;
 import static org.openqa.selenium.Proxy.ProxyType.MANUAL;
 
 public class DriverFactory {

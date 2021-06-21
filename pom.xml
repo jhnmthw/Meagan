@@ -9,17 +9,18 @@
 	License for the specific language governing permissions and ~ limitations 
 	under the License. -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<groupId>com.tavant.nfr</groupId>
+	<groupId>com.pheonix.nfr</groupId>
 	<artifactId>meagan</artifactId>
 	<version>2.0</version>
 	<modelVersion>4.0.0</modelVersion>
 
 	<name>Meagan</name>
 	<description>A NFR Testing Framework</description>
-	<url>http://www.tavant.com</url>
+	<url></url>
 	<developers>
 		<developer>
 			<name>John Mathew</name>
@@ -165,11 +166,6 @@
 		<profile>
 			<id>security</id>
 			<activation>
-				<!-- <activeByDefault>true</activeByDefault> -->
-				<!-- <property> -->
-				<!-- <name>testingProfile</name> -->
-				<!-- <value>security</value> -->
-				<!-- </property> -->
 			</activation>
 			<build>
 				<plugins>
@@ -350,12 +346,12 @@
 			<activation>
 			</activation>
 			<dependencies>
-  <dependency>
-	<groupId>com.tavant.nfr.meagan</groupId>
-	<artifactId>meagan-report-generator</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-  </dependency>
-</dependencies>
+				<dependency>
+					<groupId>com.pheonix.nfr.meagan</groupId>
+					<artifactId>meagan-report-generator</artifactId>
+					<version>0.0.1-SNAPSHOT</version>
+				</dependency>
+			</dependencies>
 			<build>
 				<plugins>
 					<plugin>
@@ -444,7 +440,7 @@
 						<configuration>
 							<jmeterVersion>3.3</jmeterVersion>
 							<testFilesIncluded>
-								<jMeterTestFile>${jmxPath}.jmx</jMeterTestFile>
+								<jMeterTestFile>${jmxName}.jmx</jMeterTestFile>
 								<!-- <jMeterTestFile>Challengers.jmx</jMeterTestFile> -->
 							</testFilesIncluded>
 							<resultsFileFormat>xml</resultsFileFormat>
@@ -496,7 +492,7 @@
 							<!-- <startServersBeforeTests>true</startServersBeforeTests> -->
 							<!-- <stopServersAfterTests>true</stopServersAfterTests> -->
 							<!-- </remoteConfig> -->
-							<guiTestFile>src/test/jmeter/${jmxPath}.jmx</guiTestFile>
+							<guiTestFile>src/test/jmeter/${jmxName}.jmx</guiTestFile>
 						</configuration>
 					</plugin>
 					<plugin>
@@ -532,7 +528,8 @@
 										<copy
 											file="${project.basedir}/src/test/resources/template/Jmeter_Reporting_Template.xlsx"
 											tofile="${project.basedir}/target/jmeter/Jmeter_Reporting_Template.xlsx" />
-										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
+										<exec executable="java"
+											dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
 											<arg value="cmdrunner-2.0.jar" />
 											<arg value="--tool" />
@@ -541,7 +538,7 @@
 											<arg value="AggregateReport-${build.date}.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxPath}.jtl" />
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxName}.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="AggregateReport" />
 										</exec>
@@ -549,7 +546,8 @@
 											file="${project.basedir}/target/jmeter/lib/AggregateReport-${build.date}.csv"
 											todir="${project.basedir}/target/jmeter/results" />
 
-										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
+										<exec executable="java"
+											dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
 											<arg value="cmdrunner-2.0.jar" />
 											<arg value="--tool" />
@@ -558,7 +556,7 @@
 											<arg value="SynthesisReport-${build.date}-all.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxPath}.jtl" />
+												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxName}.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="SynthesisReport" />
 										</exec>
@@ -566,7 +564,8 @@
 											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-all.csv"
 											todir="${project.basedir}/target/jmeter/results" />
 
-										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
+										<exec executable="java"
+											dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
 											<arg value="cmdrunner-2.0.jar" />
 											<arg value="--tool" />
@@ -583,7 +582,8 @@
 											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-success.csv"
 											todir="${project.basedir}/target/jmeter/results" />
 
-										<exec executable="java" dir="${project.basedir}/target/jmeter/lib/">
+										<exec executable="java"
+											dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
 											<arg value="cmdrunner-2.0.jar" />
 											<arg value="--tool" />
@@ -772,52 +772,28 @@
 							</execution>
 						</executions>
 					</plugin>
-					    <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version>
-        <executions>
-            <execution>
-                <id>default-cli</id>
-                <phase>post-integration-test</phase>
-                <goals>
-                    <goal>java</goal>
-                </goals>
-                <configuration>
-                    <mainClass>com.tavant.nfr.meagan.jmeter.ExcelSheetManager</mainClass>
-                    <workingDirectory>${project.build.directory}</workingDirectory>
-                    <arguments>
-                        <argument>-jar</argument>
-                        <argument>${project.basedir}/src/test/resources/meagan-report-generator-0.0.1-SNAPSHOT.jar</argument>
-                    </arguments>
-                </configuration>                        
-            </execution>
-        </executions>
-    </plugin> 
-<!-- 					<plugin> -->
-<!-- 						<groupId>org.codehaus.mojo</groupId> -->
-<!-- 						<artifactId>exec-maven-plugin</artifactId> -->
-<!-- 						<version>1.6.0</version> -->
-<!-- 						<executions> -->
-<!-- 							<execution> -->
-<!-- 								<id>default-cli</id> -->
-<!-- 								<phase>post-integration-test</phase> -->
-<!-- 								<goals> -->
-<!-- 									<goal>java</goal> -->
-<!-- 								</goals> -->
-<!-- 							</execution> -->
-<!-- 						</executions> -->
-<!-- 						<configuration> -->
-<!-- 							<mainClass>com.tavant.nfr.meagan.jmeter.ExcelSheetManager</mainClass> -->
-<!-- 							<executable>maven</executable> -->
-<!-- 							optional -->
-<!-- 							<workingDirectory>${project.build.directory}</workingDirectory> -->
-<!-- 							<arguments> -->
-<!-- 								<argument>-X</argument> -->
-<!-- 								<argument>verify</argument> -->
-<!-- 							</arguments> -->
-<!-- 						</configuration> -->
-<!-- 					</plugin> -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.6.0</version>
+						<executions>
+							<execution>
+								<id>default-cli</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+								<configuration>
+									<mainClass>com.pheonix.nfr.meagan.jmeter.ExcelSheetManager</mainClass>
+									<workingDirectory>${project.build.directory}</workingDirectory>
+									<arguments>
+										<argument>-jar</argument>
+										<argument>${project.basedir}/src/test/resources/meagan-report-generator-0.0.1-SNAPSHOT.jar</argument>
+									</arguments>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
 		</profile>

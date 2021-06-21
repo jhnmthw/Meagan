@@ -1,7 +1,7 @@
-package com.tavant.nfr.meagan.selenium;
+package com.pheonix.nfr.meagan.selenium;
 
-import com.tavant.nfr.meagan.selenium.config.DriverFactory;
-import com.tavant.nfr.meagan.selenium.listeners.ScreenshotListener;
+import com.pheonix.nfr.meagan.selenium.config.DriverFactory;
+import com.pheonix.nfr.meagan.selenium.listeners.ScreenshotListener;
 
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebDriver;

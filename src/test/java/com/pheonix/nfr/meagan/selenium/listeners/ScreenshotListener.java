@@ -1,4 +1,4 @@
-package com.tavant.nfr.meagan.selenium.listeners;
+package com.pheonix.nfr.meagan.selenium.listeners;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -7,7 +7,7 @@ import org.openqa.selenium.remote.Augmenter;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 
-import static com.tavant.nfr.meagan.selenium.DriverBase.getDriver;
+import static com.pheonix.nfr.meagan.selenium.DriverBase.getDriver;
 
 import java.io.File;
 import java.io.FileOutputStream;

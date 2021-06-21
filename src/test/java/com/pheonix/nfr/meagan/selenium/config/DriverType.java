@@ -1,4 +1,4 @@
-package com.tavant.nfr.meagan.selenium.config;
+package com.pheonix.nfr.meagan.selenium.config;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
