@@ -538,7 +538,7 @@
 											<arg value="AggregateReport-${build.date}.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxName}.jtl" />
+												value="${project.basedir}/target/jmeter/results/${build.date}-${jmxName}.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="AggregateReport" />
 										</exec>
@@ -556,7 +556,7 @@
 											<arg value="SynthesisReport-${build.date}-all.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\${build.date}-${jmxName}.jtl" />
+												value="${project.basedir}/target/jmeter/results/${build.date}-${jmxName}.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="SynthesisReport" />
 										</exec>
@@ -574,7 +574,7 @@
 											<arg value="SynthesisReport-${build.date}-success.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\success.jtl" />
+												value="${project.basedir}/target/jmeter/results/success.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="SynthesisReport" />
 										</exec>
@@ -592,7 +592,7 @@
 											<arg value="SynthesisReport-${build.date}-error.csv" />
 											<arg value="--input-jtl" />
 											<arg
-												value="C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\errors.jtl" />
+												value="${project.basedir}/target/jmeter/results/errors.jtl" />
 											<arg value="--plugin-type" />
 											<arg value="SynthesisReport" />
 										</exec>
