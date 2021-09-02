@@ -42,13 +42,13 @@
 			<comments>A business-friendly OSS license</comments>
 		</license>
 	</licenses>
-	<repositories>
+	<!-- <repositories>
 		<repository>
 			<id>meagan-repo</id>
 			<name>Meagan Repository</name>
 			<url>file://${project.basedir}\maven-repo</url>
 		</repository>
-	</repositories>
+	</repositories> -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
