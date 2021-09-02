@@ -1253,7 +1253,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\errors.jtl</stringProp>
+          <stringProp name="filename">errors.jtl</stringProp>
         </ResultCollector>
         <hashTree/>
         <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="true">
@@ -1293,7 +1293,7 @@
               <connectTime>true</connectTime>
             </value>
           </objProp>
-          <stringProp name="filename">C:\Users\john.mathew\workspace_oxygen\meagan\target\jmeter\results\success.jtl</stringProp>
+          <stringProp name="filename">success.jtl</stringProp>
           <boolProp name="ResultCollector.success_only_logging">true</boolProp>
         </ResultCollector>
         <hashTree/>
