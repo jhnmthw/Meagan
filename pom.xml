@@ -562,7 +562,11 @@
 										<move
 											file="${project.basedir}/target/jmeter/lib/SynthesisReport-${build.date}-all.csv"
 											todir="${project.basedir}/target/jmeter/results" />
-
+										<move todir="${project.basedir}/target/jmeter/results">
+											<fileset dir="${project.basedir}/target/jmeter/bin/">
+												<include name="**/*.jtl"/>
+											  </fileset>
+										</move>
 										<exec executable="java"
 											dir="${project.basedir}/target/jmeter/lib/">
 											<arg value="-jar" />
